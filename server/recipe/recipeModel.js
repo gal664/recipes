@@ -20,7 +20,11 @@ const recipeSchema = new db.Schema({
         }
     ],
     title: { type: String, default: "" },
-    author: { type: String, default: "" }
+    author: { type: String, default: "" },
+    source: {
+        name: { type: String, default: "" },
+        url: { type: String, default: "" }
+    }
 })
 
 const Recipe = db.model('recipe', recipeSchema)

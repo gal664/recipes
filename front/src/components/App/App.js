@@ -8,8 +8,7 @@ class App extends Component {
         <div className="content_container">
           <div className="recipe">
           <h1 className="recipe_title">Recipe Name Here</h1>
-          <span className="recipe_cuisine">cuisine type here</span>
-          by <span className="recipe_author">author name here</span>
+          <span className="recipe_author">author name here</span>
             <div className="ingredients_container">
               <h2 className="ingredients_title">Ingredients</h2>
               <ul className="ingredients_list">
