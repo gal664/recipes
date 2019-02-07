@@ -1,0 +1,12 @@
+li.ingredient{
+    margin: 5px;
+}
+
+li.ingredient .ingredient_name{
+    font-weight: 600;
+}
+
+li.ingredient .ingredient_quantity{
+    font-style: italic;
+    margin-left: 5px;
+}

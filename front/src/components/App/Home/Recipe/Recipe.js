@@ -7,9 +7,7 @@ class Recipe extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      recipe: {}
-    }
+    this.state = {}
   }
 
   componentWillMount() {
@@ -19,7 +17,8 @@ class Recipe extends Component {
         {
           title: data.title,
           author: data.author,
-          source: data.source,
+          sourceUrl: data.source.url,
+          sourceName: data.source.name,
           ingredients: data.ingredients,
           method: data.method
         }
@@ -54,19 +53,21 @@ class Recipe extends Component {
   render() {
     return (
       <div className="recipe">
-        <h1 className="recipe_title">{this.state.title}</h1>
-        By <span className="recipe_author">{this.state.author}</span>
-        <div className="ingredients_container">
-          <h2 className="ingredients_title">Ingredients</h2>
-          <ul className="ingredients_list">
-            {this.renderIngredients()}
-          </ul>
-        </div>
-        <div className="method_container">
-          <h2 className="method_title">Method</h2>
-          <ol className="method_list">
-            {this.renderMethod_steps()}
-          </ol>
+        <h1 className="title main_title">{this.state.title}</h1>
+        <span className="metadata">By {this.state.author} @ <a href={this.state.sourceUrl} >{this.state.sourceName}</a></span>
+        <div className="main_container">
+          <div className="ingredients_container">
+            <h2 className="title sub_title">Ingredients</h2>
+            <ul className="ingredients_list">
+              {this.renderIngredients()}
+            </ul>
+          </div>
+          <div className="method_container">
+            <h2 className="title sub_title">Method</h2>
+            <ol className="method_list">
+              {this.renderMethod_steps()}
+            </ol>
+          </div>
         </div>
       </div>
     )

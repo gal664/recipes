@@ -1,0 +1,11 @@
+li.step{
+    margin-bottom: 20px;
+}
+
+li.step .step_description{
+}
+
+li.step .step_duration{
+    font-weight: 600;
+    float: right;
+}
