@@ -28,6 +28,7 @@ router.get("/", (req, res) => {
     Recipe.find(filter)
         .then(data => res.send(data))
         .catch(e => res.status(400).send(e.message))
+        
 })
 
 // get a recipe by id
