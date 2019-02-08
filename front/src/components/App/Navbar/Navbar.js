@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Navbar.css'
 import Logo from '../Logo/Logo'
+import { NavLink } from 'react-router-dom'
 
 class Navbar extends Component {
 
@@ -15,9 +16,13 @@ class Navbar extends Component {
         <div className="navbarSection navbarSection_left">
           <i className="fas fa-search"></i>
         </div>
-        <Logo />
+          <NavLink to={`/`}>
+            <Logo />
+          </NavLink>
         <div className="navbarSection navbarSection_right">
-          <i className="fas fa-plus"></i>
+          <NavLink to={`/addRecipe`}>
+            <i className="fas fa-plus"></i>
+          </NavLink>
         </div>
       </div>
     )
@@ -25,3 +30,4 @@ class Navbar extends Component {
 }
 
 export default Navbar
+
