@@ -1,0 +1,49 @@
+import React, { Component } from 'react'
+import './IngredientsInfo.css'
+
+class IngredientsInfo extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {}
+    this.handleClick = this.handleClick.bind(this)
+    this.IngredientName = React.createRef()
+    this.IngredientAmount = React.createRef()
+    this.IngredientMeasurement = React.createRef()
+  }
+
+  handleClick() {
+
+    let IngredientsInfo = [
+      {
+        name: this.IngredientName.current.value,
+        amount: this.IngredientAmount.current.value,
+        measurement: this.IngredientMeasurement.current.value,
+      }
+    ]
+
+    this.props.onSubmitInfo(IngredientsInfo)
+
+  }
+
+  render() {
+    return (
+      <div className="IngredientsInfo">
+        <input required type="text" className="form-control" ref={this.IngredientName} id="ingredientName" placeholder="Enter Ingredient Name" />
+        <input required type="number" className="form-control" ref={this.IngredientAmount} id="ingredientAmount" placeholder="Enter Ingredient Amount" />
+        <select required className="form-control" ref={this.IngredientMeasurement} id="unitType">
+          <option hidden>Choose Unit Type</option>
+          <option>Miligrams</option>
+          <option>Grams</option>
+          <option>Kilograms</option>
+          <option>Teaspoons</option>
+          <option>Tablespoons</option>
+          <option>Cup</option>
+        </select>
+        <button onClick={this.handleClick} className="btn btn-primary">Next</button>
+      </div>
+    )
+  }
+}
+
+export default IngredientsInfo

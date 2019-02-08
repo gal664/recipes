@@ -19,7 +19,7 @@ class App extends Component {
         <div className="contentContainer">
           <Switch>
             <Route exact path='/' component={() => <Home />}/>
-            <Route path='/addRecipe' component={() => <AddRecipe />}/>
+            <Route path='/add' component={() => <AddRecipe />}/>
           </Switch>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Navbar.css'
-import Logo from '../Logo/Logo'
 import { NavLink } from 'react-router-dom'
+import Logo from '../Logo/Logo'
 
 class Navbar extends Component {
 
@@ -20,7 +20,7 @@ class Navbar extends Component {
             <Logo />
           </NavLink>
         <div className="navbarSection navbarSection_right">
-          <NavLink to={`/addRecipe`}>
+          <NavLink to={`/add`}>
             <i className="fas fa-plus"></i>
           </NavLink>
         </div>
