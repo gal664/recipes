@@ -3,12 +3,13 @@
 
 .recipe{
     padding: 10px;
-    border-bottom: 5px dotted rgb(255, 138, 71);
+    border-bottom: 5px dotted #000000;
 }
 
 .title{
     margin: 0;
     padding: 0;
+    font-family: 'Lobster', cursive;
 }
 
 .main_title{
