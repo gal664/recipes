@@ -4,6 +4,7 @@ const router = express.Router()
 
 // create recipe
 router.post("/", (req, res) => {
+
     const recipe = new Recipe(req.body)
     recipe.save()
         .catch(e => res.status(400).send(e.message))
