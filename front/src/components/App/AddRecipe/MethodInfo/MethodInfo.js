@@ -12,10 +12,9 @@ class MethodInfo extends Component {
     this.stepDurationMinutes = React.createRef()
     this.stepDurationSeconds = React.createRef()
   }
-
+  
   handleClick() {
-
-    let MethodInfo = [
+    let methodInfo = [
       {
         description: this.stepDescription.current.value,
         duration: {
@@ -25,9 +24,7 @@ class MethodInfo extends Component {
         }
       }
     ]
-
-    this.props.onSubmitInfo(MethodInfo)
-
+    this.props.onSubmitInfo(methodInfo)
   }
 
   render() {

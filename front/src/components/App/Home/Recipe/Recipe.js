@@ -32,7 +32,7 @@ class Recipe extends Component {
           key={ingredient._id}
           id={ingredient._id}
           amount={ingredient.amount}
-          units={ingredient.units}
+          measurement={ingredient.measurement}
           name={ingredient.name}
         />)
     }

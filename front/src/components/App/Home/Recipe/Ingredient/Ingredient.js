@@ -7,7 +7,7 @@ class Ingredient extends Component {
     return (
       <li className="ingredient">
         <span className="ingredient_name">{this.props.name}</span>
-        <span className="ingredient_quantity">{`${this.props.amount} ${this.props.units}`}</span>
+        <span className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</span>
       </li>
     )
   }

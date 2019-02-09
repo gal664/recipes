@@ -5,11 +5,17 @@ class IngredientsInfo extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      selectedMeasurement: null
+    }
+    this.onSelect = this.onSelect.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.IngredientName = React.createRef()
     this.IngredientAmount = React.createRef()
-    this.IngredientMeasurement = React.createRef()
+  }
+
+  onSelect(e){
+    this.setState({ selectedMeasurement: e.target.value })
   }
 
   handleClick() {
@@ -18,10 +24,11 @@ class IngredientsInfo extends Component {
       {
         name: this.IngredientName.current.value,
         amount: this.IngredientAmount.current.value,
-        measurement: this.IngredientMeasurement.current.value,
+        measurement: this.state.selectedMeasurement,
       }
     ]
-
+    console.log(IngredientsInfo)
+    
     this.props.onSubmitInfo(IngredientsInfo)
 
   }
@@ -31,7 +38,7 @@ class IngredientsInfo extends Component {
       <div className="IngredientsInfo">
         <input required type="text" className="form-control" ref={this.IngredientName} id="ingredientName" placeholder="Enter Ingredient Name" />
         <input required type="number" className="form-control" ref={this.IngredientAmount} id="ingredientAmount" placeholder="Enter Ingredient Amount" />
-        <select required className="form-control" ref={this.IngredientMeasurement} id="unitType">
+        <select required className="form-control" onChange={this.onSelect} id="unitType">
           <option hidden>Choose Unit Type</option>
           <option>Miligrams</option>
           <option>Grams</option>

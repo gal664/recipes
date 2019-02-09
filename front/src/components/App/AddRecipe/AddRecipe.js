@@ -3,6 +3,7 @@ import './AddRecipe.css'
 import RecipeInfo from './RecipeInfo/RecipeInfo'
 import IngredientsInfo from './IngredientsInfo/IngredientsInfo'
 import MethodInfo from './MethodInfo/MethodInfo'
+import { Redirect } from 'react-router'
 
 class AddRecipe extends Component {
 
@@ -17,6 +18,7 @@ class AddRecipe extends Component {
       isInfo: false,
       isIngredients: false,
       isMethod: false,
+      redirect: false,
     }
 
     this.handleClick = this.handleClick.bind(this)
@@ -92,10 +94,17 @@ class AddRecipe extends Component {
       headers: { "Content-Type": "application/json; charset=utf-8", 'Accept': 'application/json' },
       body: JSON.stringify(recipeInfo)
     })
-      .then(() => console.log("done"))
+      .then(() => {
+        this.setState({redirect: true})
+        console.log("done")
+      })
   }
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/"/>
+    }
+    
     return (
       <div className="addRecipe">
         {this.handleClick()}
