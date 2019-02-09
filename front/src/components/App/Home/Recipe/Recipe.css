@@ -12,9 +12,6 @@
     font-family: 'Lobster', cursive;
 }
 
-.main_title{
-}
-
 .sub_title{
     padding-top: 10px;
     padding-bottom: 20px; 
@@ -22,6 +19,13 @@
 
 .metadata{
     font-size: 0.9em;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+}
+
+.metadata span{
+    margin-right: 10px;
 }
 
 .recipe ul{

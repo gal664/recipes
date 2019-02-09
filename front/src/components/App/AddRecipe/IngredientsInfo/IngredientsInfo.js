@@ -36,9 +36,9 @@ class IngredientsInfo extends Component {
   render() {
     return (
       <div className="IngredientsInfo">
-        <input required type="text" className="form-control" ref={this.IngredientName} id="ingredientName" placeholder="Enter Ingredient Name" />
-        <input required type="number" className="form-control" ref={this.IngredientAmount} id="ingredientAmount" placeholder="Enter Ingredient Amount" />
-        <select required className="form-control" onChange={this.onSelect} id="unitType">
+        <input type="text" className="form-control" ref={this.IngredientName} id="ingredientName" placeholder="Enter Ingredient Name" />
+        <input type="number" className="form-control" ref={this.IngredientAmount} id="ingredientAmount" placeholder="Enter Ingredient Amount" />
+        <select className="form-control" onChange={this.onSelect} id="unitType">
           <option hidden>Choose Unit Type</option>
           <option>Miligrams</option>
           <option>Grams</option>
