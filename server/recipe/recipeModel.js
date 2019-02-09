@@ -6,17 +6,16 @@ const recipeSchema = new db.Schema({
         {
             name: String,
             amount: Number,
-            units: String,
+            measurement: String,
         }
     ],
     method: [
         {
             description: String,
             duration: {
-                hours: String,
-                minutes: String,
-                seconds: String,
-            },
+                amount: Number,
+                unit: String,
+              },
         }
     ],
     title: { type: String, default: "" },
