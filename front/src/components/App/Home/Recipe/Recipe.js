@@ -41,6 +41,7 @@ class Recipe extends Component {
           amount={ingredient.amount}
           measurement={ingredient.measurement}
           name={ingredient.name}
+          type="displayOnly"
         />)
     }
   }
@@ -53,6 +54,7 @@ class Recipe extends Component {
           id={method_step._id}
           description={method_step.description}
           duration={method_step.duration}
+          type="displayOnly"
         />)
     }
   }

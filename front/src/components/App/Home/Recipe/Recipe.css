@@ -33,10 +33,6 @@
     list-style: none;
 }
 
-.recipe ol{
-    padding-left: 1em;
-}
-
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {}
 

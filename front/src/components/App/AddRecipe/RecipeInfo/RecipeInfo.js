@@ -28,11 +28,11 @@ class RecipeInfo extends Component {
   render() {
     return (
       <div className="RecipeInfo">
-        <input type="text" className="form-control" ref={this.recipeTitle} id="recipeTitleInput" placeholder="Enter Recipe Name" />
-        <input type="text" className="form-control" ref={this.recipeAuthor} id="recipeAuthorInput" placeholder="Enter Recipe Author Name" />
-        <input type="text" className="form-control" ref={this.sourceName} id="sourceNameInput" placeholder="Enter Recipe Source Name" />
-        <input type="text" className="form-control" ref={this.sourceUrl} id="sourceUrlInput" placeholder="Enter Recipe Source URL" />
-        <button onClick={this.handleClick} className="btn btn-primary">Next</button>
+        <input type="text" autoFocus className="form-control mb-2" ref={this.recipeTitle} id="recipeTitleInput" placeholder="Enter Recipe Name" />
+        <input type="text" className="form-control mb-2" ref={this.recipeAuthor} id="recipeAuthorInput" placeholder="Enter Recipe Author Name" />
+        <input type="text" className="form-control mb-2" ref={this.sourceName} id="sourceNameInput" placeholder="Enter Recipe Source Name" />
+        <input type="text" className="form-control mb-2" ref={this.sourceUrl} id="sourceUrlInput" placeholder="Enter Recipe Source URL" />
+        <button onClick={this.handleClick} className="btn btn-primary mb-2 mt-2">Next</button>
       </div>
     )
   }

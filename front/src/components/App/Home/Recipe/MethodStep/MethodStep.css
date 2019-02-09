@@ -1,11 +1,18 @@
 li.step{
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+li.step .step_metadata{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 li.step .step_description{
+    padding-bottom: 10px;
 }
 
 li.step .step_duration{
     font-weight: 600;
-    float: right;
 }

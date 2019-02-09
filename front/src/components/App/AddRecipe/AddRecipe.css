@@ -5,7 +5,3 @@
     padding: 20px;
     padding-top: 95px;
 }
-
-.addRecipe input, .addRecipe button, .addRecipe select, .addRecipe textarea{
-    margin-bottom: 10px;
-}
