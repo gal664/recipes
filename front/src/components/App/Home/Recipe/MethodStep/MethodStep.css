@@ -1,7 +1,5 @@
 li.step{
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
 }
 li.step .step_metadata{
     display: flex;

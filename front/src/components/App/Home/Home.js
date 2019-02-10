@@ -26,6 +26,7 @@ class Home extends Component {
   }
 
   render() {
+    if(!this.state.recipes) return <div>loading...</div>  
     return (
       <div className="homepage">
         {this.renderRecipes()}

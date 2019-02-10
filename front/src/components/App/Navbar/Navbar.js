@@ -14,15 +14,15 @@ class Navbar extends Component {
     return (
       <div className="navbarContainer">
         <div className="navbarSection navbarSection_left">
-          <i className="fas fa-search"></i>
+          <NavLink to={`/add`}>
+            <i className="fas fa-plus"></i>
+          </NavLink>
         </div>
           <NavLink to={`/`}>
             <Logo />
           </NavLink>
         <div className="navbarSection navbarSection_right">
-          <NavLink to={`/add`}>
-            <i className="fas fa-plus"></i>
-          </NavLink>
+          <i className="fas fa-search"></i>
         </div>
       </div>
     )

@@ -7,21 +7,16 @@ class MethodInfo extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentStep: {
-        description: null,
-        duration: {
-          amount: null,
-          unit: null
-        }
-      },
       selectedTimeUnit: null,
       method: [],
-      listIndex: 0
+      listIndex: 0,
+      isInputsEmpty: true,
     }
     this.onSelect = this.onSelect.bind(this)
     this.handleClickSubmit = this.handleClickSubmit.bind(this)
     this.handleClickAdd = this.handleClickAdd.bind(this)
     this.removeStep = this.removeStep.bind(this)
+    this.toggleAddButtonDisable = this.toggleAddButtonDisable.bind(this)
     this.stepDescription = React.createRef()
     this.stepDuration = React.createRef()
     this.unitType = React.createRef()
@@ -44,11 +39,11 @@ class MethodInfo extends Component {
       this.stepDescription.current.value = ""
       this.stepDuration.current.value = ""
       this.unitType.current.value = "Choose Unit Type"
-      this.setState({ selectedTimeUnit: null })
+      this.setState({ selectedTimeUnit: null }, () => this.toggleAddButtonDisable())
     })
   }
 
-  onSelect = e => this.setState({ selectedTimeUnit: e.target.value })
+  onSelect = e => this.setState({ selectedTimeUnit: e.target.value }, () => this.toggleAddButtonDisable())
 
   removeStep(id) {
     let methodCopy = [...this.state.method]
@@ -70,14 +65,20 @@ class MethodInfo extends Component {
         />)
     }
   }
+  
+  toggleAddButtonDisable() {
+    if (this.stepDescription.current.value && this.stepDuration.current.value && this.state.selectedTimeUnit) {
+      this.setState({isInputsEmpty: false})
+    } else this.setState({isInputsEmpty: true})
+  }
 
   render() {
     return (
       <div className="MethodInfo">
-        <textarea autoFocus className="form-control mb-2" ref={this.stepDescription} id="methodStep" rows="5" placeholder="Enter Step Description"></textarea>
+        <textarea autoFocus className="form-control mb-2" onChange={this.toggleAddButtonDisable} ref={this.stepDescription} id="methodStep" rows="5" placeholder="Enter Step Description"></textarea>
         <div className="form-row">
           <div className="col">
-            <input type="number" className="form-control mb-2" ref={this.stepDuration} id="stepDuration" placeholder="Enter Duration" />
+            <input type="number" className="form-control mb-2" onChange={this.toggleAddButtonDisable} ref={this.stepDuration} id="stepDuration" placeholder="Enter Duration" />
           </div>
           <div className="col">
             <select className="form-control mb-2" ref={this.unitType} onChange={this.onSelect} id="unitType">
@@ -89,14 +90,14 @@ class MethodInfo extends Component {
             </select>
           </div>
         </div>
-        <button onClick={this.handleClickAdd} className="btn btn-primary mt-2">Add Step</button>
+        <button onClick={this.handleClickAdd} disabled={this.state.isInputsEmpty} className="btn btn-primary mt-2">Add Step</button>
         <div className="method_container">
           <h2 className="title sub_title">Method</h2>
           <ol className="method_list">
             {this.renderMethod_steps()}
           </ol>
         </div>
-        <button onClick={this.handleClickSubmit} className="btn btn-primary mt-2">Submit</button>
+        <button onClick={this.handleClickSubmit} disabled={!!!this.state.method.length} className="btn btn-primary mt-2">Submit</button>
       </div>
     )
   }

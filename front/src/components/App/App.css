@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
+a:hover{
+    text-decoration: none !important;
+}
+
 .App{
     /* width: 100vw; */
     height: 100vh;
 }
 
-a:hover{
-    text-decoration: none !important;
+.contentContainer{
+    height: 100%;
 }
-
 /* colors
 #AFD2CE
 #B3D380

@@ -10,9 +10,11 @@ class AddRecipe extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      title: null,
-      author: null,
-      source: { name: null, url: null },
+      info: {
+        title: null,
+        author: null,
+        source: { name: null, url: null },
+      },
       ingredients: [],
       method: [],
       isInfo: false,
@@ -32,17 +34,17 @@ class AddRecipe extends Component {
   handleClick() {
     if (!this.state.isInfo) {
       return (
-        <RecipeInfo onSubmitInfo={this.setRecipeInfo} />
+        <RecipeInfo onSubmitInfo={this.setRecipeInfo} info={this.state.info} />
       )
     }
     if (!this.state.isIngredients && this.state.isInfo) {
       return (
-        <IngredientsInfo onSubmitInfo={this.setIngredients} />
+        <IngredientsInfo onSubmitInfo={this.setIngredients} ingredients={this.state.ingredients} />
       )
     }
     if (!this.state.isMethod && this.state.isIngredients) {
       return (
-        <MethodInfo onSubmitInfo={this.setMethod} />
+        <MethodInfo onSubmitInfo={this.setMethod} method={this.state.method} />
       )
     }
   }
@@ -50,9 +52,7 @@ class AddRecipe extends Component {
   setRecipeInfo(recipeInfoValues) {
 
     this.setState({
-      title: recipeInfoValues.title,
-      author: recipeInfoValues.author,
-      source: recipeInfoValues.source,
+      info: recipeInfoValues,
       isInfo: true
     })
 
@@ -80,14 +80,12 @@ class AddRecipe extends Component {
   handleSubmit() {
 
     let recipeInfo = {
-      title: this.state.title,
-      author: this.state.author,
-      source: this.state.source,
+      title: this.state.info.title,
+      author: this.state.info.author,
+      source: this.state.info.source,
       ingredients: this.state.ingredients,
       method: this.state.method,
     }
-
-    console.log(recipeInfo)
 
     fetch(`/api/recipe`, {
       method: 'POST',
@@ -96,18 +94,45 @@ class AddRecipe extends Component {
     })
       .then(() => {
         this.setState({redirect: true})
-        console.log("done")
       })
   }
 
-  render() {
-    if (this.state.redirect) {
-      return <Redirect to="/"/>
-    }
+  trackProgress(){
+    const valueMin = 0
+    const valueMax = 100
+    const StepsAmount = 3
+    let valueNow = 0
+
+    if(this.state.isInfo) valueNow = Math.round(valueMax / StepsAmount * 1)
+    if(this.state.isIngredients) valueNow = Math.round(valueMax / StepsAmount * 2)
+    if(this.state.isMethod) valueNow = Math.round(valueMax / StepsAmount * 3)
     
     return (
+      <div className="progress-bar" role="progressbar" style={{width: `${valueNow}%`}} aria-valuenow={valueNow} aria-valuemin={valueMin} aria-valuemax={valueMax}></div>
+    )
+  }
+
+  handleClickBack(){
+    // if(this.state.isMethod){
+    //   return ()
+    // }
+  }
+  render() {
+    if (this.state.redirect) return <Redirect to="/"/>
+    return (
       <div className="addRecipe">
-        {this.handleClick()}
+        <div className="top_container">
+          <h1 className="title main_title mb-2">Add Recipe</h1>
+          <div className="progress mb-4" style={{height: "15px"}}>
+            {this.trackProgress()}
+          </div>
+        </div>
+        <div className="center_container">
+          {this.handleClick()}
+        </div>
+        <div className="bottom_container">
+          <i className="fas fa-chevron-left" onClick={this.handleClickBack}></i>
+        </div>
       </div>
     )
   }

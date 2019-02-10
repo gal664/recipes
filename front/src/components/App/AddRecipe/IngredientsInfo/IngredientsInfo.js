@@ -7,25 +7,21 @@ class IngredientsInfo extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentIngredient: {
-        name: null,
-        amount: null,
-        measurement: null
-      },
       selectedMeasurement: null,
       ingredients: [],
-      listIndex: 0
+      listIndex: 0,
+      isInputsEmpty: true,
     }
     this.onSelect = this.onSelect.bind(this)
     this.handleClickNext = this.handleClickNext.bind(this)
     this.handleClickAdd = this.handleClickAdd.bind(this)
     this.removeIngredient = this.removeIngredient.bind(this)
+    this.toggleAddButtonDisable = this.toggleAddButtonDisable.bind(this)
     this.ingredientName = React.createRef()
     this.ingredientAmount = React.createRef()
     this.unitType = React.createRef()
   }
 
-  onSelect = e => this.setState({ selectedMeasurement: e.target.value })
 
   handleClickNext = () => this.props.onSubmitInfo(this.state.ingredients)
 
@@ -42,9 +38,11 @@ class IngredientsInfo extends Component {
       this.ingredientName.current.value = ""
       this.ingredientAmount.current.value = ""
       this.unitType.current.value = "Choose Unit Type"
-      this.setState({selectedMeasurement: null})
+      this.setState({selectedMeasurement: null}, () => this.toggleAddButtonDisable())
     })
   }
+
+  onSelect = e => this.setState({ selectedMeasurement: e.target.value }, () => this.toggleAddButtonDisable())
   
   removeIngredient(id){
     let ingredientsCopy = [...this.state.ingredients]
@@ -67,12 +65,18 @@ class IngredientsInfo extends Component {
         />)
     }
   }
+  
+  toggleAddButtonDisable() {
+    if (this.ingredientName.current.value && this.ingredientAmount.current.value && this.state.selectedMeasurement) {
+      this.setState({isInputsEmpty: false})
+    } else this.setState({isInputsEmpty: true})
+  }
 
   render() {
     return (
       <div className="IngredientsInfo">
-        <input type="text" autoFocus className="form-control mb-2" ref={this.ingredientName} id="ingredientName" placeholder="Enter Ingredient Name" />
-        <input type="number" className="form-control mb-2" ref={this.ingredientAmount} id="ingredientAmount" placeholder="Enter Ingredient Amount" />
+        <input type="text" autoFocus className="form-control mb-2" onChange={this.toggleAddButtonDisable} ref={this.ingredientName} id="ingredientName" placeholder="Enter Ingredient Name" />
+        <input type="number" className="form-control mb-2" onChange={this.toggleAddButtonDisable} ref={this.ingredientAmount} id="ingredientAmount" placeholder="Enter Ingredient Amount" />
         <select className="form-control mb-2" ref={this.unitType} onChange={this.onSelect} id="unitType">
           <option hidden>Choose Unit Type</option>
           <option>Miligrams</option>
@@ -82,11 +86,14 @@ class IngredientsInfo extends Component {
           <option>Tablespoons</option>
           <option>Cups</option>
         </select>
-        <button onClick={this.handleClickAdd} className="btn btn-primary mt-2">Add Ingredient</button>
-        <ul className="ingredients_list">
-            {this.renderIngredients()}
-        </ul>
-        <button onClick={this.handleClickNext} className="btn btn-primary mt-2">Next</button>
+        <button onClick={this.handleClickAdd} disabled={this.state.isInputsEmpty} className="btn btn-primary mt-2">Add Ingredient</button>
+        <div className="ingredients_container">
+            <h2 className="title sub_title">Ingredients</h2>
+            <ul className="ingredients_list">
+              {this.renderIngredients()}
+            </ul>
+          </div>
+        <button onClick={this.handleClickNext} disabled={!!!this.state.ingredients.length} className="btn btn-primary mt-2">Next</button>
       </div>
     )
   }
