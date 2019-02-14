@@ -106,7 +106,10 @@ class MethodInfo extends Component {
             {this.renderMethod_steps()}
           </ol>
         </div>
-        <button onClick={this.handleClickSubmit} disabled={!!!this.state.method.length} className="btn btn-primary mt-2">Submit</button>
+        <div className="footer">
+          <button onClick={this.props.onClickBack} className="btn btn-secondary">Back</button>
+          <button onClick={this.handleClickSubmit} disabled={!!!this.state.method.length} className="btn btn-primary">Submit</button>
+        </div>
       </div>
     )
   }

@@ -42,12 +42,12 @@ class AddRecipe extends Component {
     }
     if (!this.state.isIngredients && this.state.isInfo) {
       return (
-        <IngredientsInfo onSubmitInfo={this.setIngredients} onUpdateInfo={this.updateIngredientsList} ingredients={this.state.ingredients} />
+        <IngredientsInfo onSubmitInfo={this.setIngredients} onUpdateInfo={this.updateIngredientsList} onClickBack={this.handleClickBack} ingredients={this.state.ingredients} />
       )
     }
     if (!this.state.isMethod && this.state.isIngredients) {
       return (
-        <MethodInfo onSubmitInfo={this.setMethod} onUpdateInfo={this.updateMethodStepsList} method={this.state.method} />
+        <MethodInfo onSubmitInfo={this.setMethod} onUpdateInfo={this.updateMethodStepsList} onClickBack={this.handleClickBack} method={this.state.method} />
       )
     }
   }
@@ -64,19 +64,19 @@ class AddRecipe extends Component {
   updateIngredientsList(ingredientsArray) {
     this.setState({ingredients: ingredientsArray})
   }
-
-  updateMethodStepsList(methodStepsArray) {
-    this.setState({method: methodStepsArray})
-  }
-
+  
   setIngredients(ingredientsArray) {
-
+    
     this.setState({
       ingredients: ingredientsArray,
       isIngredients: true
     })
-
+    
   }
+  
+    updateMethodStepsList(methodStepsArray) {
+      this.setState({method: methodStepsArray})
+    }
 
   setMethod(methodStepsArray) {
 
@@ -124,7 +124,6 @@ class AddRecipe extends Component {
   }
 
   handleClickBack(){
-    console.log("back")
     if(this.state.isIngredients){
       this.setState({ isIngredients: false })
       return
@@ -135,9 +134,6 @@ class AddRecipe extends Component {
     }
   }
 
-  renderBackButton(){
-    if(this.state.isInfo) return (<i className="fas fa-chevron-left" onClick={this.handleClickBack}></i>)
-  }
   render() {
     if (this.state.redirect) return <Redirect to="/"/>
     return (
@@ -150,9 +146,6 @@ class AddRecipe extends Component {
         </div>
         <div className="center_container">
           {this.handleClick()}
-        </div>
-        <div className="bottom_container">
-          {this.renderBackButton()}
         </div>
       </div>
     )

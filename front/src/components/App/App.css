@@ -5,13 +5,17 @@ a:hover{
 }
 
 .App{
-    /* width: 100vw; */
-    height: 100vh;
+    min-height: 100vh;
+    background: white;
+    background-position-x: center;
+    background-size: contain;
+    background-attachment: fixed;
 }
 
 .contentContainer{
     height: 100%;
 }
+
 /* colors
 #AFD2CE
 #B3D380

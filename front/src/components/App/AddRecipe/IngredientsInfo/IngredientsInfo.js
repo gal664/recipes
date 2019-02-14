@@ -82,25 +82,30 @@ class IngredientsInfo extends Component {
   render() {
     return (
       <div className="IngredientsInfo">
-        <input type="text" autoFocus className="form-control mb-2" onChange={(value) => this.onInputChange(value)} ref={this.ingredientName} name="ingredientName" id="ingredientName" placeholder="Enter Ingredient Name" />
-        <input type="number" className="form-control mb-2" onChange={(value) => this.onInputChange(value)} ref={this.ingredientAmount} name="ingredientAmount" id="ingredientAmount" placeholder="Enter Ingredient Amount" />
-        <select className="form-control mb-2" name="unitType" onChange={(value) => this.onInputChange(value)} ref={this.unitType} id="unitType">
-          <option hidden>Choose Unit Type</option>
-          <option>Miligrams</option>
-          <option>Grams</option>
-          <option>Kilograms</option>
-          <option>Teaspoons</option>
-          <option>Tablespoons</option>
-          <option>Cups</option>
-        </select>
-        <button onClick={this.handleClickAdd} disabled={this.state.isInputsEmpty} className="btn btn-primary mt-2">Add Ingredient</button>
+        <div className="addIngredientContainer">
+          <input type="text" autoFocus className="form-control mb-2" onChange={(value) => this.onInputChange(value)} ref={this.ingredientName} name="ingredientName" id="ingredientName" placeholder="Enter Ingredient Name" />
+          <input type="number" className="form-control mb-2" onChange={(value) => this.onInputChange(value)} ref={this.ingredientAmount} name="ingredientAmount" id="ingredientAmount" placeholder="Enter Ingredient Amount" />
+          <select className="form-control mb-2" name="unitType" onChange={(value) => this.onInputChange(value)} ref={this.unitType} id="unitType">
+            <option hidden>Choose Unit Type</option>
+            <option>Miligrams</option>
+            <option>Grams</option>
+            <option>Kilograms</option>
+            <option>Teaspoons</option>
+            <option>Tablespoons</option>
+            <option>Cups</option>
+          </select>
+          <button onClick={this.handleClickAdd} disabled={this.state.isInputsEmpty} className="btn btn-secondary mt-2">Add Ingredient</button>
+        </div>
         <div className="ingredients_container">
             <h2 className="title sub_title">Ingredients</h2>
             <ul className="ingredients_list">
               {this.renderIngredients()}
             </ul>
           </div>
-        <button onClick={this.handleClickNext} disabled={!!!this.state.ingredients.length} className="btn btn-primary mt-2">Next</button>
+        <div className="footer">
+          <button onClick={this.props.onClickBack} className="btn btn-secondary">Back</button>
+          <button onClick={this.handleClickNext} disabled={!!!this.state.ingredients.length} className="btn btn-primary">Next</button>
+        </div>
       </div>
     )
   }

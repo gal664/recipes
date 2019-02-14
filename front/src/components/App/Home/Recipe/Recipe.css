@@ -3,7 +3,7 @@
 
 .recipe{
     padding: 10px;
-    border-bottom: 5px dotted #000000;
+    border-bottom: 5px dotted white;
 }
 
 .title{
@@ -21,7 +21,6 @@
     font-size: 0.9em;
     display: flex;
     flex-direction: row;
-    /* justify-content: space-evenly; */
 }
 
 .metadata span{
