@@ -1,4 +1,5 @@
 const Recipe = require("./recipeModel")
+const Category = require("../category/categoryModel")
 const express = require("express")
 const router = express.Router()
 
@@ -14,14 +15,23 @@ router.post("/", (req, res) => {
         })
 })
 
+// bulk create recipes
+router.post("/bulk", (req, res) => {
+    Recipe.insertMany(req.body)
+        .catch(e => res.status(400).send(e.message))
+        .then((data) => {
+            const response = { success: true, ids: data.map(item => item.id) }
+            res.send(response)
+        })
+})
+
 // get all recipes. if used with query in url gets only recipes with titles matching the query
 router.get("/", (req, res) => {
     let query = req.query
     if (query) {
         Object.keys(query).forEach(item => {
-            if (item !== "_id") {
-                query[item] = new RegExp(query[item], "i")
-            }
+            if (item =="category") query.category = query[item]
+            else if (item !== "_id") query[item] = new RegExp(query[item], "i")
         })
     }
     Recipe.find(query)
