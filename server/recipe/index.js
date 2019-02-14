@@ -16,34 +16,33 @@ router.post("/", (req, res) => {
 
 // get all recipes. if used with query in url gets only recipes with titles matching the query
 router.get("/", (req, res) => {
-    let filter = {}
-    let query = req.query.q
-
+    let query = req.query
     if (query) {
-        console.log(query)
-        const rgx = new RegExp(query, "i")
-        console.log(rgx)
-        filter = { title: rgx }
+        Object.keys(query).forEach(item => {
+            if (item !== "_id") {
+                query[item] = new RegExp(query[item], "i")
+            }
+        })
     }
-
-    Recipe.find(filter)
+    Recipe.find(query)
+        .populate("category")
         .then(data => res.send(data))
         .catch(e => res.status(400).send(e.message))
-        
 })
 
 // get a recipe by id
 router.get("/:recipeId", (req, res) => {
     Recipe.findById(req.params.recipeId)
+        .populate("category")
         .then(data => res.send(data))
         .catch(e => res.status(400).send(e.message))
 })
 
 // delete recipe by id
 router.delete("/:recipeId", (req, res) => {
-    
+
     let id = req.params.recipeId
-    
+
     Recipe.findByIdAndRemove(id)
         .catch(e => res.status(400).send(e.message))
         .then(() => {
