@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './Navbar/Navbar'
 import Home from './Home/Home'
 import AddRecipe from './AddRecipe/AddRecipe'
+import CategoryPage from './CategoryPage/CategoryPage'
 import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
@@ -20,6 +21,11 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={() => <Home />}/>
             <Route path='/add' component={() => <AddRecipe />}/>
+            <Route
+              path='/category/:id'
+              // component={() => <CategoryPage />}
+              render={(props) => <CategoryPage {...props} />}
+            />
           </Switch>
         </div>
       </div>

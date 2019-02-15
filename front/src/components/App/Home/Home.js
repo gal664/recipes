@@ -1,35 +1,38 @@
 import React, { Component } from 'react'
 import './Home.css'
-import Recipe from './Recipe/Recipe'
+import CategoryThumbnail from './CategoryThumbnail/CategoryThumbnail'
 
 class Home extends Component {
   
   constructor(props) {
     super(props)
     this.state = {
-      recipes: []
+      categories: []
     }
   }
   
   componentWillMount() {
-    fetch("/api/recipe")
+    fetch("/api/category")
       .then(response => response.json())
-      .then(data => this.setState({ recipes: data }))
+      .then(data => this.setState({ categories: data }))
   }
 
-  renderRecipes() {
-    return this.state.recipes
-      .map(recipe => <Recipe
-        key={recipe._id}
-        id={recipe._id}
-      />)
+  renderCategories() {
+    return this.state.categories
+      .map(category => 
+          <CategoryThumbnail
+            title={category.title}
+            id={category._id}
+            key={category._id}
+          />
+      )
   }
 
   render() {
-    if(!this.state.recipes) return <div>loading...</div>  
+    if(!this.state.categories) return <div>loading...</div>  
     return (
       <div className="homepage">
-        {this.renderRecipes()}
+        {this.renderCategories()}
       </div>
     )
   }
