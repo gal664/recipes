@@ -7,3 +7,14 @@
     justify-content: space-evenly;
     padding-top: 20px;
 }
+
+.homepage_loading {
+    height: 100vh;
+    margin-top: 0;
+    align-items: center;
+}
+
+.spinner-border {
+    font-size: 1em;
+    color: black;
+}

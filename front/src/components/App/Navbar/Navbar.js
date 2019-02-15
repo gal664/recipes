@@ -10,13 +10,19 @@ class Navbar extends Component {
     this.state = {}
   }
 
+  renderAddRecipeButton() {
+    if(window.location.href.indexOf("add") === -1) return (
+      <NavLink to={`/add`}>
+        <i className="fas fa-plus"></i>
+      </NavLink>
+    )
+  }
+
   render() {
     return (
       <div className="navbarContainer">
         <div className="navbarSection navbarSection_left">
-          <NavLink to={`/add`}>
-            <i className="fas fa-plus"></i>
-          </NavLink>
+          {this.renderAddRecipeButton()}
         </div>
           <NavLink to={`/`}>
             <Logo />

@@ -23,7 +23,6 @@ class App extends Component {
             <Route path='/add' component={() => <AddRecipe />}/>
             <Route
               path='/category/:id'
-              // component={() => <CategoryPage />}
               render={(props) => <CategoryPage {...props} />}
             />
           </Switch>
