@@ -13,7 +13,8 @@ class Recipe extends Component {
       sourceUrl: null,
       sourceName: null,
       ingredients: [],
-      method: []
+      method: [],
+      isLoading: true
     }
   }
 
@@ -28,7 +29,7 @@ class Recipe extends Component {
           sourceName: data.source.name,
           ingredients: data.ingredients,
           method: data.method
-        }
+        }, () => this.setState({ isLoading: false })
       ))
   }
 
@@ -113,6 +114,14 @@ class Recipe extends Component {
   }
 
   render() {
+    if (this.state.isLoading) return (
+      <div className="homepage homepage_loading">
+        <div className="spinner-border" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+      </div>
+    )
+    
     return (
       <div className="recipe ">
         <h1 className="title main_title">{this.state.title}</h1>

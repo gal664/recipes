@@ -7,14 +7,15 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      categories: []
+      categories: [],
+      isLoading: true
     }
   }
 
   componentWillMount() {
     fetch("/api/category")
       .then(response => response.json())
-      .then(data => this.setState({ categories: data }))
+      .then(data => this.setState({ categories: data }, () => this.setState({ isLoading: false })))
   }
 
   renderCategories() {
@@ -29,7 +30,7 @@ class Home extends Component {
   }
 
   render() {
-    if (this.state.categories.length === 0) return (
+    if (this.state.isLoading) return (
       <div className="homepage homepage_loading">
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
