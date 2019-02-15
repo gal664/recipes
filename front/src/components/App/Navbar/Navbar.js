@@ -18,6 +18,14 @@ class Navbar extends Component {
     )
   }
 
+  renderSearchButton() {
+    if(window.location.href.indexOf("search") === -1) return (
+      <NavLink to={`/search`}>
+        <i className="fas fa-search"></i>
+      </NavLink>
+    )
+  }
+
   render() {
     return (
       <div className="navbarContainer">
@@ -28,7 +36,7 @@ class Navbar extends Component {
             <Logo />
           </NavLink>
         <div className="navbarSection navbarSection_right">
-          <i className="fas fa-search"></i>
+          {this.renderSearchButton()}
         </div>
       </div>
     )

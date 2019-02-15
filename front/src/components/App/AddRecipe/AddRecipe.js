@@ -14,6 +14,7 @@ class AddRecipe extends Component {
         title: "",
         author: "",
         source: { name: "", url: "" },
+        category: ""
       },
       ingredients: [],
       method: [],
@@ -94,9 +95,12 @@ class AddRecipe extends Component {
       title: this.state.info.title,
       author: this.state.info.author,
       source: this.state.info.source,
+      category: this.state.info.category,
       ingredients: this.state.ingredients,
-      method: this.state.method,
+      method: this.state.method
     }
+    
+    console.log(recipeInfo)
 
     fetch(`/api/recipe`, {
       method: 'POST',

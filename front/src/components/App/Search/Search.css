@@ -1,0 +1,9 @@
+.searchPage{
+    height: 100;
+    width: 100%;
+    background: #ffffff;
+    padding: 20px;
+    padding-top: 95px;
+    display: flex;
+    flex-direction: column;
+}

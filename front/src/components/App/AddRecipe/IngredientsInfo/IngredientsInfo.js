@@ -14,7 +14,7 @@ class IngredientsInfo extends Component {
       ingredientAmount: "",
       unitType: ""
     }
-    
+
     this.handleClickNext = this.handleClickNext.bind(this)
     this.handleClickAdd = this.handleClickAdd.bind(this)
     this.removeIngredient = this.removeIngredient.bind(this)
@@ -27,7 +27,7 @@ class IngredientsInfo extends Component {
 
   handleClickNext = () => this.props.onSubmitInfo(this.state.ingredients)
 
-  onInputChange = e => this.setState({[e.target.name]: e.target.value}, () => this.toggleAddButtonDisable())
+  onInputChange = e => this.setState({ [e.target.name]: e.target.value }, () => this.toggleAddButtonDisable())
 
   handleClickAdd() {
     let index = this.state.listIndex
@@ -51,11 +51,11 @@ class IngredientsInfo extends Component {
     })
   }
 
-  removeIngredient(id){
+  removeIngredient(id) {
     let ingredientsCopy = [...this.state.ingredients]
     var ingredientToDelete = ingredientsCopy.find(ingredient => ingredient.id === id)
     ingredientsCopy.splice(ingredientsCopy.indexOf(ingredientToDelete), 1);
-    this.setState({ingredients: ingredientsCopy}, this.props.onUpdateInfo(ingredientsCopy))
+    this.setState({ ingredients: ingredientsCopy }, this.props.onUpdateInfo(ingredientsCopy))
   }
 
   renderIngredients() {
@@ -72,11 +72,11 @@ class IngredientsInfo extends Component {
         />)
     }
   }
-  
+
   toggleAddButtonDisable() {
     if (this.state.ingredientName && this.state.ingredientAmount && this.state.unitType) {
-      this.setState({isInputsEmpty: false})
-    } else this.setState({isInputsEmpty: true})
+      this.setState({ isInputsEmpty: false })
+    } else this.setState({ isInputsEmpty: true })
   }
 
   render() {
@@ -97,11 +97,11 @@ class IngredientsInfo extends Component {
           <button onClick={this.handleClickAdd} disabled={this.state.isInputsEmpty} className="btn btn-secondary mt-2">Add Ingredient</button>
         </div>
         <div className="ingredients_container">
-            <h2 className="title sub_title">Ingredients</h2>
-            <ul className="ingredients_list">
-              {this.renderIngredients()}
-            </ul>
-          </div>
+          <h2 className="title sub_title">Ingredients</h2>
+          <ul className="ingredients_list">
+            {this.renderIngredients()}
+          </ul>
+        </div>
         <div className="footer">
           <button onClick={this.props.onClickBack} className="btn btn-secondary">Back</button>
           <button onClick={this.handleClickNext} disabled={!!!this.state.ingredients.length} className="btn btn-primary">Next</button>
