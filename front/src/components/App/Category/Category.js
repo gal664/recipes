@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import './CategoryPage.css'
-import Recipe from './Recipe/Recipe'
+import './Category.css'
+import { NavLink } from 'react-router-dom'
+import Loader from '../Loader/Loader'
 
-class CategoryPage extends Component {
+class Category extends Component {
 
   constructor(props) {
     super(props)
@@ -20,26 +21,22 @@ class CategoryPage extends Component {
 
   renderRecipes() {
     return this.state.recipes
-      .map(recipe => <Recipe
-        key={recipe._id}
-        id={recipe._id}
-      />)
+      .map(recipe =>
+        <NavLink to={`/recipe/${recipe._id}`} key={recipe._id}>
+          <div className="recipe_thumbnail">
+            <span>{recipe.title}</span>
+          </div>
+        </NavLink>
+      )
   }
 
   render() {
-    if (this.state.isLoading) return (
-      <div className="homepage homepage_loading">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    )
-    
+    if (this.state.isLoading) return <Loader/>    
     return (
-      <div className="categoryPage">
+      <div className="Category">
         {this.renderRecipes()}
       </div> )
   }
 }
 
-export default CategoryPage
+export default Category

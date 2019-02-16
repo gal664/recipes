@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './RecipeInfo.css'
+import Loader from '../../Loader/Loader'
 
 class RecipeInfo extends Component {
 
@@ -59,14 +60,7 @@ class RecipeInfo extends Component {
   }
 
   render() {
-    if (this.state.isLoading) return (
-      <div className="homepage homepage_loading">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    )
-
+    if (this.state.isLoading) return <Loader/>
     return (
       <div className="RecipeInfo">
         <input type="text" value={this.state.recipeTitleInput} autoFocus className="form-control mb-2" onChange={(value) => this.onInputChange(value)} id="recipeTitleInput" name="recipeTitleInput" placeholder="Enter Recipe Name" />

@@ -4,8 +4,9 @@ import { Route, Switch } from 'react-router-dom'
 import Navbar from './Navbar/Navbar'
 import Home from './Home/Home'
 import AddRecipe from './AddRecipe/AddRecipe'
-import CategoryPage from './CategoryPage/CategoryPage'
+import Category from './Category/Category'
 import Search from './Search/Search'
+import Recipe from './Recipe/Recipe'
 
 class App extends Component {
 
@@ -22,8 +23,9 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={() => <Home />}/>
             <Route path='/add' component={() => <AddRecipe />}/>
-            <Route path='/category/:id' render={(props) => <CategoryPage {...props} />}/>
             <Route path='/search' component={() => <Search />}/>
+            <Route path='/category/:id' render={(props) => <Category {...props} />}/>
+            <Route path='/recipe/:id' render={(props) => <Recipe {...props} />}/>
           </Switch>
         </div>
       </div>

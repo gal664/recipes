@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './Search.css'
+import { NavLink } from 'react-router-dom'
+import Loader from '../Loader/Loader'
 
 class Search extends Component {
 
@@ -24,31 +26,34 @@ class Search extends Component {
   }
 
   onSearchParams() {
-    let query = ""
-    if (this.state.recipeTitle) query += `title=${this.state.recipeTitle}`
-    if (this.state.category) query += `category=${this.state.category}`
+    let query = []
+    if (this.state.searchInput) query.push(`title=${this.state.searchInput}`)
+    if (this.state.category) query.push(`category=${this.state.category}`)
     
-    fetch(`/api/recipe?${query}`)
+    for (let i = 1; i < query.length; i++){
+      query[i] = `&${query[i]}`
+    }
+    
+    fetch(`/api/recipe?${query.join("")}`)
     .then(response => response.json())
     .then(data => this.setState({ results: data }))
   }
 
   renderSearchResults() {
-    if (this.state.results) {
+    if(this.state.results){
       return this.state.results
-        .map(result => <li key={result.id}>{result.title}</li>)
+        .map(result =>
+          <NavLink to={`/recipe/${result._id}`} key={result._id}>
+            <div className="recipe_thumbnail">
+              <span>{result.title}</span>
+            </div>
+          </NavLink>
+        )
     }
   }
 
   render() {
-    if (this.state.isLoading) return (
-      <div className="homepage homepage_loading">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    )
-
+    if (this.state.isLoading) return <Loader/>
     return (
       <div className="searchPage">
         <input type="text" onChange={(value) => this.onInputChange(value)} className="form-control" id="searchInput" name="searchInput" placeholder="Search recipe..."></input>

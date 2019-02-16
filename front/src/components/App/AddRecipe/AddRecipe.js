@@ -100,8 +100,6 @@ class AddRecipe extends Component {
       method: this.state.method
     }
     
-    console.log(recipeInfo)
-
     fetch(`/api/recipe`, {
       method: 'POST',
       headers: { "Content-Type": "application/json; charset=utf-8", 'Accept': 'application/json' },

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Recipe.css'
 import Ingredient from './Ingredient/Ingredient'
 import MethodStep from './MethodStep/MethodStep'
+import Loader from '../Loader/Loader'
 
 class Recipe extends Component {
 
@@ -19,7 +20,7 @@ class Recipe extends Component {
   }
 
   componentWillMount() {
-    fetch(`/api/recipe/${this.props.id}`)
+    fetch(`/api/recipe/${this.props.match.params.id}`)
       .then(response => response.json())
       .then(data => this.setState(
         {
@@ -29,7 +30,8 @@ class Recipe extends Component {
           sourceName: data.source.name,
           ingredients: data.ingredients,
           method: data.method
-        }, () => this.setState({ isLoading: false })
+        },
+         () => this.setState({ isLoading: false })
       ))
   }
 
@@ -114,14 +116,7 @@ class Recipe extends Component {
   }
 
   render() {
-    if (this.state.isLoading) return (
-      <div className="homepage homepage_loading">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    )
-    
+    if (this.state.isLoading) return <Loader/>
     return (
       <div className="recipe ">
         <h1 className="title main_title">{this.state.title}</h1>

@@ -1,4 +1,15 @@
-.category_thumbnail {
+.Category {
+    min-height: 100%;
+    width: 100%;
+    margin-top: 75px;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+
+.recipe_thumbnail {
     width: 150px;
     height: 150px;
     margin: 15px;
@@ -10,7 +21,7 @@
     justify-content: flex-end;
 }
 
-.category_thumbnail span{
+.recipe_thumbnail span{
     font-size: 1.2em;
     font-weight: bold;
     color: white;

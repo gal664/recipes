@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Home.css'
-import CategoryThumbnail from './CategoryThumbnail/CategoryThumbnail'
+import { NavLink } from 'react-router-dom'
+import Loader from '../Loader/Loader'
 
 class Home extends Component {
 
@@ -21,23 +22,16 @@ class Home extends Component {
   renderCategories() {
     return this.state.categories
       .map(category =>
-        <CategoryThumbnail
-          title={category.title}
-          id={category._id}
-          key={category._id}
-        />
+        <NavLink to={`/category/${category._id}`} key={category._id}>
+          <div className="category_thumbnail">
+            <span>{category.title}</span>
+          </div>
+        </NavLink>
       )
   }
 
   render() {
-    if (this.state.isLoading) return (
-      <div className="homepage homepage_loading">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div>
-    )
-
+    if (this.state.isLoading) return <Loader/>
     return (
       <div className="homepage">
         {this.renderCategories()}
