@@ -2,7 +2,8 @@ const db = require('../db')
 const { Schema } = require('mongoose')
 
 const categorySchema = new db.Schema({
-    title: String
+    title: String,
+    image: String
 })
 
 const Category = db.model('category', categorySchema)

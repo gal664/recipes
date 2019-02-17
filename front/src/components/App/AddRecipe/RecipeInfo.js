@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import './RecipeInfo.css'
-import Loader from '../../Loader/Loader'
+import Loader from '../Loader/Loader'
 
 class RecipeInfo extends Component {
 

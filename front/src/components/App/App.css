@@ -4,6 +4,7 @@ a:hover{
     text-decoration: none !important;
 }
 
+/* App */
 .App{
     min-height: 100vh;
     background: white;
@@ -15,3 +16,272 @@ a:hover{
 .contentContainer{
     height: 100%;
 }
+
+/* Home */
+.homepage {
+    min-height: 100%;
+    width: 100%;
+    margin-top: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.category_thumbnail {
+    width: 50vw;
+    height: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.category_thumbnail span{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: black;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    text-align: center;
+}
+
+/* Navbar */
+.navbarContainer{
+    height: 75px;
+    width: 100%;
+    position: fixed;
+    background: white;
+    top: 0px;
+    box-shadow: 0px -10px 30px 2px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+
+.navbarSection{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.navbarSection_left{
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.navbarSection_right{
+    flex-direction: row-reverse;
+    margin-right: 20px;
+}
+
+i{
+    color: black;
+}
+
+/* Logo */
+.Logo{
+    font-family: 'Lobster', cursive;
+    font-size: 1.8em;
+    color: black;
+    text-decoration: none;
+}
+
+/* Search */
+.searchPage{
+    height: 100;
+    width: 100%;
+    background: #ffffff;
+    padding: 20px;
+    padding-top: 95px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Loader */
+.loader {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+}
+
+.spinner-border {
+    font-size: 1em;
+    color: black;
+}
+
+/* Category */
+.Category {
+    min-height: 100%;
+    width: 100%;
+    margin-top: 75px;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+
+.recipe_thumbnail {
+    width: 150px;
+    height: 150px;
+    margin: 15px;
+    background: url('https://images.pexels.com/photos/103124/pexels-photo-103124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.recipe_thumbnail span{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    text-align: center;
+}
+
+/* AddRecipe */
+.addRecipe{
+    height: 100;
+    width: 100%;
+    background: #ffffff;
+    padding: 20px;
+    padding-top: 95px;
+    display: flex;
+    flex-direction: column;
+}
+
+.center_container {
+    flex-grow: 1;
+}
+
+.bottom_container i {
+    font-size: 1.5em;
+}
+
+.footer {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    background: white;
+    bottom: 0px;
+    left: 0px;
+    padding: 10px;
+    box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.IngredientsInfo{
+    padding-bottom: 50px;
+}
+
+.ingredients_list{
+    list-style: none;
+    line-height: 2em;
+}
+
+/* Recipe */
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+.recipe{
+    min-height: 100%;
+    width: 100%;
+    margin-top: 75px;
+    padding: 10px;
+    border-bottom: 5px dotted white;
+}
+
+.title{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lobster', cursive;
+}
+
+.sub_title{
+    padding-top: 10px;
+    padding-bottom: 20px; 
+}
+
+.metadata{
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: row;
+}
+
+.metadata span{
+    margin-right: 10px;
+}
+
+.recipe ul{
+    padding-left: 1em;
+    list-style: none;
+}
+
+li.step{
+    margin-bottom: 20px;
+}
+
+li.ingredient{
+    margin: 5px;
+}
+
+li.ingredient .ingredient_name{
+    font-weight: 600;
+}
+
+li.ingredient .ingredient_quantity{
+    font-style: italic;
+    margin-left: 5px;
+}
+
+li.step .step_metadata{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+li.step .step_description{
+    padding-bottom: 10px;
+}
+
+li.step .step_duration{
+    font-weight: 600;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    
+    .main_container{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .ingredients_container{
+        padding-right: 50px;
+    }
+    
+    .method_container{
+        width: 50%;
+    }
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Recipe.css'
-import Ingredient from './Ingredient/Ingredient'
-import MethodStep from './MethodStep/MethodStep'
+import Ingredient from './Ingredient'
+import MethodStep from './MethodStep'
 import Loader from '../Loader/Loader'
 
 class Recipe extends Component {

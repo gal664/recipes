@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import './MethodInfo.css'
-import MethodStep from '../../Recipe/MethodStep/MethodStep'
+import MethodStep from '../Recipe/MethodStep'
 
 class MethodInfo extends Component {
 

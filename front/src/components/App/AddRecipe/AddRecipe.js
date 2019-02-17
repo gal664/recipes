@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import './AddRecipe.css'
-import RecipeInfo from './RecipeInfo/RecipeInfo'
-import IngredientsInfo from './IngredientsInfo/IngredientsInfo'
-import MethodInfo from './MethodInfo/MethodInfo'
 import { Redirect } from 'react-router'
+import RecipeInfo from './RecipeInfo'
+import IngredientsInfo from './IngredientsInfo'
+import MethodInfo from './MethodInfo'
+import './AddRecipe.css'
 
 class AddRecipe extends Component {
 

@@ -1,20 +1,15 @@
-.homepage {
+/* .homepage {
     min-height: 100%;
     width: 100%;
     margin-top: 75px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding-top: 20px;
 }
 
 .category_thumbnail {
-    width: 150px;
-    height: 150px;
-    margin: 15px;
-    background: url('https://images.pexels.com/photos/103124/pexels-photo-103124.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-    background-position: center;
-    background-size: cover;
+    width: 50vw;
+    height: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -23,8 +18,8 @@
 .category_thumbnail span{
     font-size: 1.2em;
     font-weight: bold;
-    color: white;
-    background: rgba(0, 0, 0, 0.8);
+    color: black;
+    background: rgba(255, 255, 255, 0.5);
     width: 100%;
     text-align: center;
-}
+} */

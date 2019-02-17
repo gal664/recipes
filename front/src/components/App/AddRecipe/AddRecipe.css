@@ -1,4 +1,4 @@
-.addRecipe{
+/* .addRecipe{
     height: 100;
     width: 100%;
     background: #ffffff;
@@ -30,3 +30,12 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.IngredientsInfo{
+    padding-bottom: 50px;
+}
+
+.ingredients_list{
+    list-style: none;
+    line-height: 2em;
+} */

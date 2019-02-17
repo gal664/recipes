@@ -1,6 +1,4 @@
-/* Extra small devices (portrait phones, less than 576px) */
-/* No media query for `xs` since this is the default in Bootstrap */
-
+/*
 .recipe{
     min-height: 100%;
     width: 100%;
@@ -35,13 +33,37 @@
     list-style: none;
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {}
+li.step{
+    margin-bottom: 20px;
+}
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {}
+li.ingredient{
+    margin: 5px;
+}
 
-/* Large devices (desktops, 992px and up) */
+li.ingredient .ingredient_name{
+    font-weight: 600;
+}
+
+li.ingredient .ingredient_quantity{
+    font-style: italic;
+    margin-left: 5px;
+}
+
+li.step .step_metadata{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+li.step .step_description{
+    padding-bottom: 10px;
+}
+
+li.step .step_duration{
+    font-weight: 600;
+}
+
 @media (min-width: 992px) {
     
     .main_container{
@@ -56,8 +78,5 @@
     .method_container{
         width: 50%;
     }
-    
 }
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
+*/

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './MethodStep.css'
 
 class MethodStep extends Component {
   constructor(props) {
