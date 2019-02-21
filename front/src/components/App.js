@@ -6,7 +6,7 @@ import Category from './Category'
 import AddRecipe from './AddRecipe'
 import Search from './Search'
 import Recipe from './Recipe'
-import './App.scss'
+import '../css/Main.scss'
 
 class App extends Component {
 
@@ -19,7 +19,6 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <div className="contentContainer">
           <Switch>
             <Route exact path='/' component={() => <Home />}/>
             <Route path='/add' component={() => <AddRecipe />}/>
@@ -27,7 +26,6 @@ class App extends Component {
             <Route path='/category/:id' render={(props) => <Category {...props} />}/>
             <Route path='/recipe/:id' render={(props) => <Recipe {...props} />}/>
           </Switch>
-        </div>
       </div>
     )
   }

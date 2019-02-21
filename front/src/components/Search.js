@@ -43,8 +43,8 @@ class Search extends Component {
       return this.state.results
         .map(result =>
           <NavLink to={`/recipe/${result._id}`} key={result._id}>
-            <div className="recipe_thumbnail">
-              <span>{result.title}</span>
+            <div className="thumbnail" style={{background: `url(${result.image}) center/cover`}}>
+              <span className="thumbnail_title">{result.title}</span>
             </div>
           </NavLink>
         )
@@ -55,6 +55,7 @@ class Search extends Component {
     if (this.state.isLoading) return <Loader/>
     return (
       <div className="searchPage">
+        <h1 className="title main_title mb-2">Search</h1>
         <input type="text" onChange={(value) => this.onInputChange(value)} className="form-control" id="searchInput" name="searchInput" placeholder="Search recipe..."></input>
         <select name="category" id="inputState" onChange={(value) => this.onInputChange(value)} className="form-control mt-2">
           <option hidden>Category</option>
@@ -62,9 +63,7 @@ class Search extends Component {
         </select>
         <div className="results_container">
           <h2 className="title sub_title">Search Results</h2>
-          <ul className="search_results">
-            {this.renderSearchResults()}
-          </ul>
+          {this.renderSearchResults()}
         </div>
       </div>
     )

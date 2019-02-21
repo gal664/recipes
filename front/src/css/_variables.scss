@@ -1,0 +1,21 @@
+$color1: rgb(255, 180, 19);
+$color2: rgb(255, 246, 246);
+$color3: rgb(7, 180, 228);
+$color4: rgb(255, 101, 48);
+$color5: rgb(228, 224, 228);
+
+$navbarHeight: 50px;
+
+@mixin setPageContainer($flex: initial, $direction: row, $wrap: nowrap, $justify: space-evenly) {
+    margin-top: $navbarHeight;
+    padding: 10px 10px 0px 10px;
+    min-height: 100%;
+    width: 100%;
+
+    @if $flex == true {
+        display: flex;
+        flex-wrap: $wrap;
+        justify-content: $justify;
+        flex-direction: $direction;
+    }
+}

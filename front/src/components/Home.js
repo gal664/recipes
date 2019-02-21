@@ -20,11 +20,11 @@ class Home extends Component {
 
   renderCategories() {
     return this.state.categories
-      .map(category =>
-        <NavLink to={`/category/${category._id}`} key={category._id}>
-          <div className="category_thumbnail" style={{background: `url(${category.image}) center/cover`}}>
-            <span>{category.title}</span>
-          </div>
+      .map(result =>
+        <NavLink to={`/category/${result._id}`} key={result._id}>
+            <div className="thumbnail" style={{background: `url(${result.image}) center/cover`}}>
+              <span className="thumbnail_title">{result.title}</span>
+            </div>
         </NavLink>
       )
   }

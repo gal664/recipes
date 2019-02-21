@@ -20,10 +20,10 @@ class Category extends Component {
 
   renderRecipes() {
     return this.state.recipes
-      .map(recipe =>
-        <NavLink to={`/recipe/${recipe._id}`} key={recipe._id}>
-          <div className="recipe_thumbnail">
-            <span>{recipe.title}</span>
+      .map(result =>
+        <NavLink to={`/recipe/${result._id}`} key={result._id}>
+          <div className="thumbnail" style={{background: `url(${result.image}) center/cover`}}>
+            <span className="thumbnail_title">{result.title}</span>
           </div>
         </NavLink>
       )

@@ -7,6 +7,7 @@ const recipeSchema = new db.Schema({
     title: String,
     author: String,
     source: { name: String, url: String },
+    image: String,
     category: {
         type: Schema.Types.ObjectId,
         ref: "category"

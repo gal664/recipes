@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import '_variables';
+@import './mq576px';
+@import './mq768px';
+@import './mq992px';
+@import './mq1200px';
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+
+.App{
+    min-height: 100vh;
+    background: linear-gradient(to bottom left, $color2, $color5);
+        
+    .thumbnail {
+        width: calc(100vw - 20px);
+        height: 20vw;
+        border-radius: 8px;
+        margin: 0px 10px 10px 10px;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column-reverse;
+        
+        .thumbnail_title{
+            font-family: 'Lobster', cursive;
+            font-size: 2em;
+            color: $color1;
+        }
+    }
+
+    .title{
+        font-family: 'Lobster', cursive;
+        
+        &.main_title{
+            margin: 0;
+            padding: 0;
+        }
+        
+        &.sub_title{
+            padding-top: 10px;
+            padding-bottom: 20px; 
+        }
+    }
+
+    a:hover{ text-decoration: none !important; }
+    
+    ul{ padding-left: 1em; list-style: none !important; }
+
+    .loader {
+        position: absolute;
+        top: 50vh;
+        left: 50vw;
+        
+        .spinner-border {
+            font-size: 1em;
+            color: black;
+        }
+    }
+
+    .Logo{
+        font-family: 'Lobster', cursive;
+        font-size: 1.8em;
+        color: black;
+        text-decoration: none;
+    }
+
+    .navbarContainer{
+        height: $navbarHeight;
+        width: 100%;
+        position: fixed;
+        background: $color2;
+        top: 0px;
+        box-shadow: 0px -10px 30px 2px rgba(0,0,0,0.75);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+        
+        .navbarSection{
+            width: 30%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5em;
+            
+            &.navbarSection_left{
+                flex-direction: row;
+                margin-left: 20px;
+            }
+            
+            &.navbarSection_right{
+                flex-direction: row-reverse;
+                margin-right: 20px;
+            }
+            
+            i{
+                color: black;
+            }
+        }
+    }
+    
+    .searchPage, .addRecipe{ @include setPageContainer(true, column, nowrap, flex-start); }
+    .homepage, .Category { @include setPageContainer(true, row, wrap, space-evenly); }
+    
+    .addRecipe{
+        
+        .center_container { flex-grow: 1; }
+        .bottom_container i { font-size: 1.5em; }
+        
+        .footer {
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            background: white;
+            bottom: 0px;
+            left: 0px;
+            padding: 10px;
+            box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.75);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .IngredientsInfo{
+            padding-bottom: 50px !important;
+            
+            .ingredients_list{
+                list-style: none;
+                line-height: 2em;
+            }
+        }
+    }
+    
+    .recipe{
+        @include setPageContainer(false);
+        
+        .metadata{
+            font-size: 0.9em;
+            display: flex;
+            flex-direction: row;
+            
+            &span{ margin-right: 10px; }
+        }
+                
+        li.ingredient{
+            margin: 5px;
+            
+            .ingredient_name{ font-weight: 600; }
+            
+            .ingredient_quantity{
+                font-style: italic;
+                margin-left: 5px;
+            }
+        }
+        
+        li.step{
+            margin-bottom: 20px;
+            
+            .step_metadata{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+            
+            .step_description{ padding-bottom: 10px; }
+            .step_duration{ font-weight: 600; }
+        }
+    }
+}
