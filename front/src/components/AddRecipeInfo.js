@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Loader from '../Loader/Loader'
+import Loader from './Loader'
 
-class RecipeInfo extends Component {
+class AddRecipeInfo extends Component {
 
   constructor(props) {
     super(props)
@@ -76,4 +76,4 @@ class RecipeInfo extends Component {
   }
 }
 
-export default RecipeInfo
+export default AddRecipeInfo

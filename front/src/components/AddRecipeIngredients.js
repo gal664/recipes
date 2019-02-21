@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Ingredient from '../Recipe/Ingredient'
+import Ingredient from './Ingredient'
 
-class IngredientsInfo extends Component {
+class AddRecipeIngredients extends Component {
 
   constructor(props) {
     super(props)
@@ -110,4 +110,4 @@ class IngredientsInfo extends Component {
   }
 }
 
-export default IngredientsInfo
+export default AddRecipeIngredients

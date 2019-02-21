@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import './Search.css'
 import { NavLink } from 'react-router-dom'
-import Loader from '../Loader/Loader'
+import Loader from './Loader'
 
 class Search extends Component {
 

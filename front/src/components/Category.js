@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import './Category.css'
 import { NavLink } from 'react-router-dom'
-import Loader from '../Loader/Loader'
+import Loader from './Loader'
 
 class Category extends Component {
 

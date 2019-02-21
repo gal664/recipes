@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import './Navbar.css'
 import { NavLink } from 'react-router-dom'
-import Logo from '../Logo/Logo'
 
 class Navbar extends Component {
 
@@ -33,7 +31,7 @@ class Navbar extends Component {
           {this.renderAddRecipeButton()}
         </div>
           <NavLink to={`/`}>
-            <Logo />
+            <div className="Logo">- Recipes -</div>
           </NavLink>
         <div className="navbarSection navbarSection_right">
           {this.renderSearchButton()}

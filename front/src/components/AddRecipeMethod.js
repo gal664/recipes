@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import MethodStep from '../Recipe/MethodStep'
+import MethodStep from './MethodStep'
 
-class MethodInfo extends Component {
+class AddRecipeMethod extends Component {
 
   constructor(props) {
     super(props)
@@ -114,4 +114,4 @@ class MethodInfo extends Component {
   }
 }
 
-export default MethodInfo
+export default AddRecipeMethod

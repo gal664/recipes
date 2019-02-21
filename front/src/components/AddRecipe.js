@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router'
-import RecipeInfo from './RecipeInfo'
-import IngredientsInfo from './IngredientsInfo'
-import MethodInfo from './MethodInfo'
-import './AddRecipe.css'
+import AddRecipeInfo from './AddRecipeInfo'
+import AddRecipeIngredients from './AddRecipeIngredients'
+import AddRecipeMethod from './AddRecipeMethod'
 
 class AddRecipe extends Component {
 
@@ -38,17 +37,17 @@ class AddRecipe extends Component {
   handleClick() {
     if (!this.state.isInfo) {
       return (
-        <RecipeInfo onSubmitInfo={this.setRecipeInfo} info={this.state.info} />
+        <AddRecipeInfo onSubmitInfo={this.setRecipeInfo} info={this.state.info} />
       )
     }
     if (!this.state.isIngredients && this.state.isInfo) {
       return (
-        <IngredientsInfo onSubmitInfo={this.setIngredients} onUpdateInfo={this.updateIngredientsList} onClickBack={this.handleClickBack} ingredients={this.state.ingredients} />
+        <AddRecipeIngredients onSubmitInfo={this.setIngredients} onUpdateInfo={this.updateIngredientsList} onClickBack={this.handleClickBack} ingredients={this.state.ingredients} />
       )
     }
     if (!this.state.isMethod && this.state.isIngredients) {
       return (
-        <MethodInfo onSubmitInfo={this.setMethod} onUpdateInfo={this.updateMethodStepsList} onClickBack={this.handleClickBack} method={this.state.method} />
+        <AddRecipeMethod onSubmitInfo={this.setMethod} onUpdateInfo={this.updateMethodStepsList} onClickBack={this.handleClickBack} method={this.state.method} />
       )
     }
   }
