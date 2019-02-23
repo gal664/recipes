@@ -45,7 +45,7 @@
 
     a:hover{ text-decoration: none !important; }
     
-    ul{ padding-left: 1em; list-style: none !important; }
+    ul{ padding-left: 0; list-style: none !important; }
 
     .loader {
         position: absolute;
@@ -65,13 +65,12 @@
         text-decoration: none;
     }
 
-    .navbarContainer{
+    .navbar{
         height: $navbarHeight;
         width: 100%;
         position: fixed;
         background: $color2;
         top: 0px;
-        box-shadow: 0px -10px 30px 2px rgba(0,0,0,0.75);
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -137,37 +136,44 @@
     
     .recipe{
         @include setPageContainer(false);
+        min-height: 100vh;
+
+        .recipe_image{ width: 100%; }
         
-        .metadata{
-            font-size: 0.9em;
+        .ingredients_list{
             display: flex;
             flex-direction: row;
-            
-            &span{ margin-right: 10px; }
-        }
-                
-        li.ingredient{
-            margin: 5px;
-            
-            .ingredient_name{ font-weight: 600; }
-            
-            .ingredient_quantity{
-                font-style: italic;
-                margin-left: 5px;
-            }
-        }
-        
-        li.step{
-            margin-bottom: 20px;
-            
-            .step_metadata{
+            flex-wrap: wrap;
+
+            li.ingredient{
+                max-width: 100%;
+                background: $color1;
+                border-radius: 8px;
+                margin: 5px;
+                padding: 5px;
                 display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
+                flex-direction: column;
+                justify-content: space-between;
+                
+                .ingredient_name{
+                    margin-right: 2px;
+                    font-weight: bold;
+                    word-break: break-all;
+                }
             }
-            
-            .step_description{ padding-bottom: 10px; }
-            .step_duration{ font-weight: 600; }
+        }
+        ol.method_list{
+            padding-left: 1px;
+            li.step{
+                margin-bottom: 20px;
+                max-width: 100%;
+                background: $color3;
+                border-radius: 8px;
+                margin: 5px;
+                padding: 5px;
+                
+                .step_duration{ font-weight: 600; }
+            }
         }
     }
 }

@@ -15,15 +15,15 @@ class Ingredient extends Component {
     if (this.props.type === "displayOnly") {
       return (
         <li className="ingredient">
-          <span className="ingredient_name">{this.props.name}</span>
-          <span className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</span>
+          <div className="ingredient_name">{this.props.name}</div>
+          <div className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</div>
         </li>
       )
     } else if (this.props.type === "editable") {
       return (
         <li className="ingredient">
-          <span className="ingredient_name">{this.props.name}</span>
-          <span className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</span>
+          <div className="ingredient_name">{this.props.name}</div>
+          <div className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</div>
           <button onClick={this.handleClick} className="btn btn-secondary ml-2">Remove</button>
         </li>
       )

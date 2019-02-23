@@ -26,7 +26,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div className="navbarContainer">
+      <div className="navbar">
         <div className="navbarSection navbarSection_left">
           {this.renderAddRecipeButton()}
         </div>

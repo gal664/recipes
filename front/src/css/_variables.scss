@@ -8,7 +8,8 @@ $navbarHeight: 50px;
 
 @mixin setPageContainer($flex: initial, $direction: row, $wrap: nowrap, $justify: space-evenly) {
     margin-top: $navbarHeight;
-    padding: 10px 10px 0px 10px;
+    padding: 10px;
+    // padding: 10px 10px 0px 10px;
     min-height: 100%;
     width: 100%;
 
