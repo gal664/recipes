@@ -33,6 +33,7 @@ class Home extends Component {
     if (this.state.isLoading) return <Loader/>
     return (
       <div className="homepage">
+      <h1 className="title">Categories</h1>
         {this.renderCategories()}
       </div>
     )

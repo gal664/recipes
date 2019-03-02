@@ -33,6 +33,7 @@ class Category extends Component {
     if (this.state.isLoading) return <Loader/>    
     return (
       <div className="Category">
+        <h1 className="title">Recipes</h1>
         {this.renderRecipes()}
       </div> )
   }

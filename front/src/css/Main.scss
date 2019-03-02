@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 @import '_variables';
-@import './mq576px';
-@import './mq768px';
-@import './mq992px';
-@import './mq1200px';
+// // @import './mq576px';
+// // @import './mq768px';
+// // @import './mq992px';
+// // @import './mq1200px';
 
-/* Extra small devices (portrait phones, less than 576px) */
-/* No media query for `xs` since this is the default in Bootstrap */
-
+// /* Extra small devices (portrait phones, less than 576px) */
+// /* No media query for `xs` since this is the default in Bootstrap */
 
 .App{
     min-height: 100vh;
-    background: linear-gradient(to bottom left, $color2, $color5);
-        
+    width: 100vw;
+    
     .thumbnail {
         width: calc(100vw - 20px);
         height: 20vw;
@@ -43,9 +42,56 @@
         }
     }
 
-    a:hover{ text-decoration: none !important; }
+    a{
+        color: initial;
+        
+        &:hover{
+            text-decoration: none !important;
+            color: initial;
+        }
+    }
     
-    ul{ padding-left: 0; list-style: none !important; }
+    ul, ol{
+        padding-left: 0; list-style: none !important;
+    }
+    
+    .ingredients_list{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+        li.ingredient{
+            max-width: 100%;
+            background: $color1;
+            border-radius: 8px;
+            margin: 5px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            .ingredient_name{
+                margin-right: 2px;
+                font-weight: bold;
+                word-break: break-all;
+            }
+        }
+    }
+
+    ol.method_list{
+        
+        li.step{
+            background: $color3;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 5px;
+            .step_duration{ font-weight: 600; }
+            .step_metadata{
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
 
     .loader {
         position: absolute;
@@ -64,47 +110,13 @@
         color: black;
         text-decoration: none;
     }
-
-    .navbar{
-        height: $navbarHeight;
-        width: 100%;
-        position: fixed;
-        background: $color2;
-        top: 0px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 2;
-        
-        .navbarSection{
-            width: 30%;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 1.5em;
-            
-            &.navbarSection_left{
-                flex-direction: row;
-                margin-left: 20px;
-            }
-            
-            &.navbarSection_right{
-                flex-direction: row-reverse;
-                margin-right: 20px;
-            }
-            
-            i{
-                color: black;
-            }
-        }
+    
+    .homepage, .Category {
+        @include setPageContainer(true, row, wrap, space-evenly);
     }
     
-    .searchPage, .addRecipe{ @include setPageContainer(true, column, nowrap, flex-start); }
-    .homepage, .Category { @include setPageContainer(true, row, wrap, space-evenly); }
-    
     .addRecipe{
+        @include setPageContainer(true, column, nowrap, flex-start);
         
         .center_container { flex-grow: 1; }
         .bottom_container i { font-size: 1.5em; }
@@ -138,42 +150,10 @@
         @include setPageContainer(false);
         min-height: 100vh;
 
-        .recipe_image{ width: 100%; }
+        .recipe_image{
+            width: 100%;
+            margin-top: 10px;
+        }
         
-        .ingredients_list{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-
-            li.ingredient{
-                max-width: 100%;
-                background: $color1;
-                border-radius: 8px;
-                margin: 5px;
-                padding: 5px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                
-                .ingredient_name{
-                    margin-right: 2px;
-                    font-weight: bold;
-                    word-break: break-all;
-                }
-            }
-        }
-        ol.method_list{
-            padding-left: 1px;
-            li.step{
-                margin-bottom: 20px;
-                max-width: 100%;
-                background: $color3;
-                border-radius: 8px;
-                margin: 5px;
-                padding: 5px;
-                
-                .step_duration{ font-weight: 600; }
-            }
-        }
     }
 }
