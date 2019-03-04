@@ -113,7 +113,9 @@ class AddCategory extends Component {
           {this.renderImageOptionThumbnails()}
           {this.renderMoreButton()}
         </div>
-        <button onClick={this.handleSubmit} disabled={!!!this.state.categoryName.length} className="btn btn-primary">Submit</button>
+        <div className="footer">
+          <button onClick={this.handleSubmit} disabled={!!!this.state.categoryName.length} className="btn btn-primary">Submit</button>
+        </div>
       </div>
     )
   }
