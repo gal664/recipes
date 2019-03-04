@@ -73,10 +73,10 @@ class Recipe extends Component {
       method.forEach(step => {
         switch (step.duration.unit) {
           case "Days":
-            total += step.duration.amount * 86400 // number of days times the number of seconds in a day
-            break;
+          total += step.duration.amount * 86400 // number of days times the number of seconds in a day
+          break;
           case "Hours":
-            total += step.duration.amount * 3600 // number of hours times the number of seconds in an hour
+          total += step.duration.amount * 3600 // number of hours times the number of seconds in an hour
             break;
           case "Minutes":
             total += step.duration.amount * 60 // number of minutes times the number of seconds in an minute
@@ -91,26 +91,26 @@ class Recipe extends Component {
       })
     }
 
-    if (total > 0 && total < 60) {
+    if (total >= 0 && total < 60) {
       if (total === 1) return `${total} second`
       return `${total} seconds`
     }
 
-    if (total > 60 && total < 3600) {
+    if (total >= 60 && total < 3600) {
       total = Math.round(total / 60)
 
       if (total === 1) return `${total} minute`
       return `${total} minutes`
     }
 
-    if (total > 3600 && total < 86400) {
+    if (total >= 3600 && total < 86400) {
       total = Math.round(total / 3600)
 
       if (total === 1) return `${total} hour`
       return `${total} hours`
     }
     
-    if (total > 86400) {
+    if (total >= 86400) {
       total = Math.round(total / 86400)
 
       if (total === 1) return `${total} day`
@@ -128,7 +128,8 @@ class Recipe extends Component {
           <span role="img" aria-label="source">⚓</span> <a href={this.state.sourceUrl} target="_blank" rel="noopener noreferrer" >{this.state.sourceName}</a><br/>
           <span role="img" aria-label="duration">⏲️</span> {this.renderRecipeDuration()}
         </div>
-        <img className="recipe_image" src={this.state.image} alt={this.state.title}/>
+        <img className="recipe_image" src={this.state.image.urls.small} alt={this.state.title}/>
+        <span role="img" aria-label="camera">📷</span> <a href={this.state.image.user.links.html} target="_blank" rel="noopener noreferrer" >{this.state.image.user.name}</a><br/>
         <div className="main_container">
           <div className="ingredients_container">
             <h2 className="title sub_title">Ingredients</h2>

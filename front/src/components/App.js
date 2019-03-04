@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Home from './Home'
 import Category from './Category'
 import AddRecipe from './AddRecipe'
+import AddCategory from './AddCategory'
 import Recipe from './Recipe'
 import '../css/Main.scss'
 
@@ -18,7 +19,8 @@ class App extends Component {
       <div className="App">
           <Switch>
             <Route exact path='/' component={() => <Home />}/>
-            <Route path='/add' component={() => <AddRecipe />}/>
+            <Route path='/recipe/add' component={() => <AddRecipe />}/>
+            <Route path='/category/add' component={() => <AddCategory />}/>
             <Route path='/category/:id' render={(props) => <Category {...props} />}/>
             <Route path='/recipe/:id' render={(props) => <Recipe {...props} />}/>
           </Switch>

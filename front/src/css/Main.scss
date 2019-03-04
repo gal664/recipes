@@ -42,10 +42,14 @@
             padding: 0px 10px 0px 10px;
             font-size: 0.9em;
         }
-
+        
         .thumbnail_title {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-top-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 0px 10px 0px 10px;
             font-size: 1.4em;
-            color: $color1;
         }
     }
 

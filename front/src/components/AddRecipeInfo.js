@@ -100,7 +100,7 @@ class AddRecipeInfo extends Component {
   handleMoreButtonClick(){
     let currentResults = [...this.state.searchResults.results]
     this.setState({currentPage: this.state.currentPage + 1},() => {
-      fetch(`/api/unsplash/${this.state.recipeImageInput}/${this.state.currentPage + 1}/${this.state.perPage}`)
+      fetch(`/api/unsplash/${this.state.searchResults.keyword}/${this.state.currentPage}/${this.state.perPage}`)
       .then(response => response.json())
       .then(data => this.setState(
         {
@@ -139,7 +139,7 @@ class AddRecipeInfo extends Component {
         </select>
         <div className="form-row">
           <div className="col">
-            <input type="text" value={this.state.recipeImageInput} className="form-control mb-2" onChange={(value) => this.onInputChange(value)} id="recipeImageInput" name="recipeImageInput" placeholder="Enter Image Search Keyword" />
+            <input type="text" value={this.state.recipeImageInput} className="form-control mb-2" onChange={(value) => this.onInputChange(value)} id="recipeImageInput" name="recipeImageInput" placeholder="Search Image" />
           </div>
           <div className="col">
             <button onClick={this.handleImageSearch} disabled={!!!this.state.recipeImageInput} className="btn btn-primary">Search</button>
