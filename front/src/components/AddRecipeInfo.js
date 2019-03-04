@@ -11,7 +11,7 @@ class AddRecipeInfo extends Component {
       searchResults: {
         results: []
       },
-      searchPage: 1,
+      currentPage: 1,
       perPage: 30,
       recipeTitleInput: this.props.info.title,
       recipeAuthorInput: this.props.info.author,
@@ -68,7 +68,7 @@ class AddRecipeInfo extends Component {
 
   handleImageSearch(){
     if(this.state.recipeImageInput.length > 0){
-      fetch(`/api/unsplash/${this.state.recipeImageInput}/${this.state.searchPage}/${this.state.perPage}`)
+      fetch(`/api/unsplash/${this.state.recipeImageInput}/${this.state.currentPage}/${this.state.perPage}`)
       .then(response => response.json())
       .then(data => this.setState({searchResults: {...data, keyword: this.state.recipeImageInput}}))
     }
@@ -99,18 +99,24 @@ class AddRecipeInfo extends Component {
 
   handleMoreButtonClick(){
     let currentResults = [...this.state.searchResults.results]
-    this.setState({searchPage: this.state.searchPage + 1},() => {
-      fetch(`/api/unsplash/${this.state.recipeImageInput}/${this.state.searchPage}/${this.state.perPage}`)
+    this.setState({currentPage: this.state.currentPage + 1},() => {
+      fetch(`/api/unsplash/${this.state.recipeImageInput}/${this.state.currentPage + 1}/${this.state.perPage}`)
       .then(response => response.json())
-      .then(data => this.setState({searchResults: {...this.state.searchResults, results: [...currentResults, ...data.results]}}))
+      .then(data => this.setState(
+        {
+          searchResults: {
+            ...this.state.searchResults,
+            results: [...currentResults, ...data.results]
+        }
+      }))
     })
   }
 
   renderMoreButton() {
-    if (this.state.searchResults.results.length > 0 && this.state.searchPage < this.state.searchResults.total_pages) { 
+    if (this.state.searchResults.results.length > 0 && this.state.currentPage < this.state.searchResults.total_pages) { 
       return (
         <div className="thumbnail unsplash more" onClick={this.handleMoreButtonClick}>
-          <span>More...</span>
+          <span>More... {`(${this.state.searchResults.total_pages - this.state.currentPage})`}</span>
         </div>
       )
     }

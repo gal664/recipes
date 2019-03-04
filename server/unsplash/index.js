@@ -11,7 +11,7 @@ const unsplash = new Unsplash({
     secret: unsplashConfig.APP_SECRET
 })
 
-// search for keyword in unsplash API
+// search in unsplash API
 router.get("/:keyword/:page/:perpage", (req, res) => {
     unsplash.search.photos(req.params.keyword, req.params.page, req.params.perpage)
         .then(toJson)
