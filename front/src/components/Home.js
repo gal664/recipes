@@ -21,8 +21,8 @@ class Home extends Component {
   renderCategories() {
     return this.state.categories
       .map(result =>
-        <NavLink to={`/category/${result._id}`} key={result._id}>
-            <div className="thumbnail" style={{background: `url(${result.image}) center/cover`}}>
+        <NavLink to={`/category/${result._id}`} key={result._id} category={result}>
+            <div className="thumbnail" image={result.image} title={result.title} style={{background: `url(${result.image.urls.small}) center/cover`}}>
               <span className="thumbnail_title">{result.title}</span>
             </div>
         </NavLink>
@@ -33,6 +33,7 @@ class Home extends Component {
     if (this.state.isLoading) return <Loader/>
     return (
       <div className="homepage">
+      <h1 className="title">Categories</h1>
         {this.renderCategories()}
       </div>
     )

@@ -14,17 +14,17 @@ class Ingredient extends Component {
   render() {
     if (this.props.type === "displayOnly") {
       return (
-        <li className="ingredient">
-          <span className="ingredient_name">{this.props.name}</span>
-          <span className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</span>
+        <li className="ingredient displayOnly">
+          <div className="ingredient_name">{this.props.name}</div>
+          <div className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</div>
         </li>
       )
     } else if (this.props.type === "editable") {
       return (
-        <li className="ingredient">
-          <span className="ingredient_name">{this.props.name}</span>
-          <span className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</span>
-          <button onClick={this.handleClick} className="btn btn-secondary ml-2">Remove</button>
+        <li className="ingredient editable">
+          <div className="ingredient_name">{this.props.name}</div>
+          <div className="ingredient_quantity">{`${this.props.amount} ${this.props.measurement}`}</div>
+          <div onClick={this.handleClick} className="badge badge-danger">Remove</div>
         </li>
       )
     }

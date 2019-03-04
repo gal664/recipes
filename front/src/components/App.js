@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Navbar from './Navbar'
 import Home from './Home'
 import Category from './Category'
 import AddRecipe from './AddRecipe'
-import Search from './Search'
+import AddCategory from './AddCategory'
 import Recipe from './Recipe'
 import '../css/Main.scss'
 
@@ -18,11 +17,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
           <Switch>
             <Route exact path='/' component={() => <Home />}/>
-            <Route path='/add' component={() => <AddRecipe />}/>
-            <Route path='/search' component={() => <Search />}/>
+            <Route path='/recipe/add' component={() => <AddRecipe />}/>
+            <Route path='/category/add' component={() => <AddCategory />}/>
             <Route path='/category/:id' render={(props) => <Category {...props} />}/>
             <Route path='/recipe/:id' render={(props) => <Recipe {...props} />}/>
           </Switch>

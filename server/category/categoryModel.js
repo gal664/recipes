@@ -3,7 +3,7 @@ const { Schema } = require('mongoose')
 
 const categorySchema = new db.Schema({
     title: String,
-    image: String
+    image: Schema.Types.Mixed,
 })
 
 const Category = db.model('category', categorySchema)

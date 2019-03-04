@@ -33,17 +33,17 @@ class MethodStep extends Component {
       if (this.props.type === "displayOnly") {
         return (
           <li className="step">
-            <span className="step_description">{this.props.description}</span>
+            <p className="step_description">{this.props.description}</p>
             {this.calculateDurationValue()}
           </li>
         )
       } else if (this.props.type === "editable") {
         return (
           <li className="step">
-            <span className="step_description">{this.props.description}</span>
+            <p className="step_description">{this.props.description}</p>
             <div className="step_metadata">
               {this.calculateDurationValue()}
-              <button onClick={this.handleClick} className="btn btn-secondary ml-2">Remove</button>
+              <div onClick={this.handleClick} className="badge badge-danger">Remove</div>
             </div>
           </li>
         )

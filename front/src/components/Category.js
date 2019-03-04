@@ -20,10 +20,10 @@ class Category extends Component {
 
   renderRecipes() {
     return this.state.recipes
-      .map(result =>
-        <NavLink to={`/recipe/${result._id}`} key={result._id}>
-          <div className="thumbnail" style={{background: `url(${result.image}) center/cover`}}>
-            <span className="thumbnail_title">{result.title}</span>
+      .map(recipe =>
+        <NavLink to={`/recipe/${recipe._id}`} key={recipe._id} recipe={recipe}>
+          <div className="thumbnail" style={{background: `url(${recipe.image.urls.small}) center/cover`}}>
+            <span className="thumbnail_title">{recipe.title}</span>
           </div>
         </NavLink>
       )
@@ -33,6 +33,7 @@ class Category extends Component {
     if (this.state.isLoading) return <Loader/>    
     return (
       <div className="Category">
+        <h1 className="title">Recipes</h1>
         {this.renderRecipes()}
       </div> )
   }
