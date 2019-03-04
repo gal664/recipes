@@ -13,7 +13,9 @@ class AddRecipe extends Component {
         title: "",
         author: "",
         source: { name: "", url: "" },
-        category: ""
+        category: "",
+        imageInput: "",
+        image: "",
       },
       ingredients: [],
       method: [],
@@ -95,6 +97,7 @@ class AddRecipe extends Component {
       author: this.state.info.author,
       source: this.state.info.source,
       category: this.state.info.category,
+      image: this.state.info.image,
       ingredients: this.state.ingredients,
       method: this.state.method
     }

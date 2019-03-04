@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster');
 @import '_variables';
 // // @import './mq576px';
 // // @import './mq768px';
@@ -8,59 +7,83 @@
 // /* Extra small devices (portrait phones, less than 576px) */
 // /* No media query for `xs` since this is the default in Bootstrap */
 
-.App{
+.App {
     min-height: 100vh;
     width: 100vw;
-    
+
     .thumbnail {
         width: calc(100vw - 20px);
         height: 20vw;
         border-radius: 8px;
         margin: 0px 10px 10px 10px;
-        padding-left: 10px;
-        display: flex;
-        flex-direction: column-reverse;
-        
-        .thumbnail_title{
-            font-family: 'Lobster', cursive;
-            font-size: 2em;
+
+        &.unsplash {
+            margin-left: 0;
+
+            &.chosen {
+                box-shadow: 0 0 10px 2px $color3;
+            }
+    
+            &.more {
+                background: $color5;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .thumbnail_author {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-top-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 0px 10px 0px 10px;
+            font-size: 0.9em;
+        }
+
+        .thumbnail_title {
+            font-size: 1.4em;
             color: $color1;
         }
     }
 
-    .title{
-        font-family: 'Lobster', cursive;
-        
-        &.main_title{
+    .title {
+        font-family: $mainFont;
+
+        &.main_title {
             margin: 0;
             padding: 0;
         }
-        
-        &.sub_title{
+
+        &.sub_title {
             padding-top: 10px;
-            padding-bottom: 20px; 
+            padding-bottom: 20px;
         }
     }
 
-    a{
+    a {
         color: initial;
-        
-        &:hover{
+
+        &:hover {
             text-decoration: none !important;
             color: initial;
         }
     }
-    
-    ul, ol{
-        padding-left: 0; list-style: none !important;
+
+    ul,
+    ol {
+        padding-left: 0;
+        list-style: none !important;
     }
-    
-    .ingredients_list{
+
+    .ingredients_list {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        
-        li.ingredient{
+
+        li.ingredient {
             max-width: 100%;
             background: $color1;
             border-radius: 8px;
@@ -69,8 +92,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            
-            .ingredient_name{
+
+            .ingredient_name {
                 margin-right: 2px;
                 font-weight: bold;
                 word-break: break-all;
@@ -78,15 +101,19 @@
         }
     }
 
-    ol.method_list{
-        
-        li.step{
+    ol.method_list {
+
+        li.step {
             background: $color3;
             border-radius: 8px;
             margin: 10px;
             padding: 5px;
-            .step_duration{ font-weight: 600; }
-            .step_metadata{
+
+            .step_duration {
+                font-weight: 600;
+            }
+
+            .step_metadata {
                 display: flex;
                 justify-content: space-between;
             }
@@ -97,30 +124,37 @@
         position: absolute;
         top: 50vh;
         left: 50vw;
-        
+
         .spinner-border {
             font-size: 1em;
             color: black;
         }
     }
 
-    .Logo{
-        font-family: 'Lobster', cursive;
+    .Logo {
+        font-family: $mainFont;
         font-size: 1.8em;
         color: black;
         text-decoration: none;
     }
-    
-    .homepage, .Category {
+
+    .homepage,
+    .Category {
         @include setPageContainer(true, row, wrap, space-evenly);
     }
-    
-    .addRecipe{
+
+    .addRecipe {
         @include setPageContainer(true, column, nowrap, flex-start);
-        
-        .center_container { flex-grow: 1; }
-        .bottom_container i { font-size: 1.5em; }
-        
+        margin-bottom: 50px;
+
+        .center_container {
+            flex-grow: 1;
+        }
+
+        .bottom_container i {
+            font-size: 1.5em;
+        }
+
         .footer {
             height: 50px;
             width: 100%;
@@ -129,31 +163,31 @@
             bottom: 0px;
             left: 0px;
             padding: 10px;
-            box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.75);
+            box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.75);
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
         }
-        
-        .IngredientsInfo{
+
+        .IngredientsInfo {
             padding-bottom: 50px !important;
-            
-            .ingredients_list{
+
+            .ingredients_list {
                 list-style: none;
                 line-height: 2em;
             }
         }
     }
-    
-    .recipe{
+
+    .recipe {
         @include setPageContainer(false);
         min-height: 100vh;
 
-        .recipe_image{
+        .recipe_image {
             width: 100%;
             margin-top: 10px;
         }
-        
+
     }
 }

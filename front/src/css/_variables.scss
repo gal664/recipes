@@ -4,6 +4,11 @@ $color3: rgb(7, 180, 228);
 $color4: rgb(255, 101, 48);
 $color5: rgb(228, 224, 228);
 
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Indie+Flower');
+$mainFont: 'Fredericka the Great', cursive;
+
+
+
 @mixin setPageContainer($flex: initial, $direction: row, $wrap: nowrap, $justify: space-evenly) {
     min-height: 100%;
     width: 100vw;
