@@ -38,6 +38,13 @@ router.get("/", (req, res) => {
         .catch(e => res.status(400).send(e.message))
 })
 
+// get a category by id
+router.get("/:categoryId", (req, res) => {
+    Category.findById(req.params.categoryId)
+        .then(data => res.send(data))
+        .catch(e => res.status(400).send(e.message))
+})
+
 // delete category by id
 router.delete("/:categoryId", (req, res) => {
     Category.findByIdAndRemove(req.params.categoryId)

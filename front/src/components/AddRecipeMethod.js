@@ -100,7 +100,6 @@ class AddRecipeMethod extends Component {
         </div>
         <button onClick={this.handleClickAdd} disabled={this.state.isInputsEmpty} className="btn btn-primary mt-2">Add Step</button>
         <div className="method_container">
-          <h2 className="title sub_title">Method</h2>
           <ol className="method_list">
             {this.renderMethod_steps()}
           </ol>

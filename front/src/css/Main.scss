@@ -50,6 +50,23 @@
             border-bottom-right-radius: 8px;
             padding: 0px 10px 0px 10px;
             font-size: 1.4em;
+            font-family: $mainFont;
+        }
+    }
+    .navbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 1.5em;
+        
+        span{
+            font-family: $mainFont;
+        }
+        .icons{
+            a{
+                padding-left: 10px;
+            }
         }
     }
 
@@ -68,7 +85,7 @@
     }
 
     a {
-        color: initial;
+        color: inherit;
 
         &:hover {
             text-decoration: none !important;

@@ -96,7 +96,6 @@ class AddRecipeIngredients extends Component {
           <button onClick={this.handleClickAdd} disabled={this.state.isInputsEmpty} className="btn btn-secondary mt-2">Add Ingredient</button>
         </div>
         <div className="ingredients_container">
-          <h2 className="title sub_title">Ingredients</h2>
           <ul className="ingredients_list">
             {this.renderIngredients()}
           </ul>

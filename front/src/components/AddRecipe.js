@@ -3,6 +3,7 @@ import { Redirect } from 'react-router'
 import AddRecipeInfo from './AddRecipeInfo'
 import AddRecipeIngredients from './AddRecipeIngredients'
 import AddRecipeMethod from './AddRecipeMethod'
+import Navbar from './Navbar'
 
 class AddRecipe extends Component {
 
@@ -138,12 +139,24 @@ class AddRecipe extends Component {
     }
   }
 
+  handleNavbarTitle(){
+    if (!this.state.isInfo) {
+      return "Add recipe info"
+    }
+    if (!this.state.isIngredients && this.state.isInfo) {
+      return "Add ingredients required"
+    }
+    if (!this.state.isMethod && this.state.isIngredients) {
+      return "Add method and prep steps"
+  }
+}
+
   render() {
     if (this.state.redirect) return <Redirect to="/"/>
     return (
       <div className="addRecipe">
+        <Navbar title={this.handleNavbarTitle()}/>
         <div className="top_container">
-          <h1 className="title main_title mb-2">Add Recipe</h1>
           <div className="progress mb-4" style={{height: "15px"}}>
             {this.trackProgress()}
           </div>

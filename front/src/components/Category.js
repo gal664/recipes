@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Loader from './Loader'
+import Navbar from './Navbar'
 
 class Category extends Component {
 
@@ -15,7 +16,11 @@ class Category extends Component {
   componentWillMount() {
     fetch(`/api/recipe?category=${this.props.match.params.id}`)
       .then(response => response.json())
-      .then(data => this.setState({ recipes: data }, () => this.setState({ isLoading: false })))
+      .then(data => this.setState({ recipes: data }))
+      .then(
+        fetch(`/api/category/${this.props.match.params.id}`)
+        .then(response => response.json())
+        .then(data => this.setState({ category: data }, () => this.setState({ isLoading: false }))))
   }
 
   renderRecipes() {
@@ -30,10 +35,10 @@ class Category extends Component {
   }
 
   render() {
-    if (this.state.isLoading) return <Loader/>    
+    if (this.state.isLoading) return <Loader/>
     return (
       <div className="Category">
-        <h1 className="title">Recipes</h1>
+        <Navbar title={this.state.category.title}/>
         {this.renderRecipes()}
       </div> )
   }
