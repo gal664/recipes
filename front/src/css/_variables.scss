@@ -12,7 +12,6 @@ $mainFont: 'Lobster Two', cursive;
 @mixin setPageContainer($flex: initial, $direction: row, $wrap: nowrap, $justify: space-evenly) {
     min-height: 100%;
     width: 100vw;
-    padding: 10px;
 
     @if $flex == true {
         display: flex;

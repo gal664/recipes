@@ -33,26 +33,17 @@
                 color: rgba(0, 0, 0, 0.5);
             }
         }
-
-        .thumbnail_author {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border-top-left-radius: 8px;
-            border-bottom-right-radius: 8px;
-            padding: 0px 10px 0px 10px;
-            font-size: 0.9em;
-        }
         
-        .thumbnail_title {
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
+        .thumbnail_title, .thumbnail_author {
+            background: rgba(0, 0, 0, 0.2);
             border-top-left-radius: 8px;
             border-bottom-right-radius: 8px;
             padding: 0px 10px 0px 10px;
-            font-size: 1.4em;
+            font-size: 1.2em;
             font-family: $mainFont;
         }
     }
+    
     .navbar{
         display: flex;
         flex-direction: row;
@@ -63,13 +54,30 @@
         span{
             font-family: $mainFont;
         }
-        .icons{
-            a{
+
+        .menu{
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-right: 15px;
+            padding-top: 13px;
+            background: rgba($color: #000000, $alpha: 0.5);
+            border-left: 3px white solid;
+            color: white;
+
+            .menuItem{
+                padding-bottom: 10px;
                 padding-left: 10px;
+                width: 100%;
+                font-size: 0.75em;
             }
         }
     }
-
+    
     .title {
         font-family: $mainFont;
 
@@ -93,8 +101,7 @@
         }
     }
 
-    ul,
-    ol {
+    ul, ol {
         padding-left: 0;
         list-style: none !important;
     }
@@ -159,8 +166,7 @@
         text-decoration: none;
     }
 
-    .homepage,
-    .Category {
+    .homepage, .Category {
         @include setPageContainer(true, row, wrap, space-evenly);
     }
 

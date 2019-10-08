@@ -107,7 +107,7 @@ class AddCategory extends Component {
             </div>
             <div className="col">
               <button onClick={this.handleImageSearch} disabled={!!!this.state.imageInput} className="btn btn-primary">Search</button>
-              <span className="ml-2">@ <a target="_blank" rel="noopener noreferrer" href={`https://unsplash.com/?utm_source=Recipes&utm_medium=referral`}>Unsplash</a></span>
+              <span className="ml-2">@<a target="_blank" rel="noopener noreferrer" href={`https://unsplash.com/?utm_source=Recipes&utm_medium=referral`}>Unsplash</a></span>
             </div>
           </div>
           {this.renderImageOptionThumbnails()}

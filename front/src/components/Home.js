@@ -23,7 +23,7 @@ class Home extends Component {
     return this.state.categories
       .map(result =>
         <NavLink to={`/category/${result._id}`} key={result._id} category={result}>
-            <div className="thumbnail" image={result.image} title={result.title} style={{background: `url(${result.image.urls.small}) center/cover`}}>
+            <div className="thumbnail" image={result.image} title={result.title} style={{background: `url(${result.image.urls.small}) center/cover`, color: result.image.color}}>
               <span className="thumbnail_title">{result.title}</span>
             </div>
         </NavLink>

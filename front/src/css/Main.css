@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster+Two|Indie+Flower");
+.App {
+  min-height: 100vh;
+  width: 100vw; }
+  .App .thumbnail {
+    width: calc(100vw - 20px);
+    height: 20vw;
+    border-radius: 8px;
+    margin: 0px 10px 10px 10px; }
+    .App .thumbnail.unsplash {
+      margin-left: 0; }
+      .App .thumbnail.unsplash.chosen {
+        box-shadow: 0 0 10px 2px #07b4e4; }
+      .App .thumbnail.unsplash.more {
+        background: #e4e0e4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.5); }
+    .App .thumbnail .thumbnail_title, .App .thumbnail .thumbnail_author {
+      background: rgba(0, 0, 0, 0.2);
+      border-top-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      padding: 0px 10px 0px 10px;
+      font-size: 1.2em;
+      font-family: "Lobster Two", cursive; }
+  .App .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.5em; }
+    .App .navbar span {
+      font-family: "Lobster Two", cursive; }
+    .App .navbar .menu {
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-right: 15px;
+      padding-top: 13px;
+      background: rgba(0, 0, 0, 0.5);
+      border-left: 3px white solid;
+      color: white; }
+      .App .navbar .menu .menuItem {
+        padding-bottom: 10px;
+        padding-left: 10px;
+        width: 100%;
+        font-size: 0.75em; }
+  .App .title {
+    font-family: "Lobster Two", cursive; }
+    .App .title.main_title {
+      margin: 0;
+      padding: 0; }
+    .App .title.sub_title {
+      padding-top: 10px;
+      padding-bottom: 20px; }
+  .App a {
+    color: inherit; }
+    .App a:hover {
+      text-decoration: none !important;
+      color: initial; }
+  .App ul, .App ol {
+    padding-left: 0;
+    list-style: none !important; }
+  .App .ingredients_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    .App .ingredients_list li.ingredient {
+      max-width: 100%;
+      background: #ffb413;
+      border-radius: 8px;
+      margin: 5px;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      .App .ingredients_list li.ingredient .ingredient_name {
+        margin-right: 2px;
+        font-weight: bold;
+        word-break: break-all; }
+  .App ol.method_list li.step {
+    background: #07b4e4;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 5px; }
+    .App ol.method_list li.step .step_duration {
+      font-weight: 600; }
+    .App ol.method_list li.step .step_metadata {
+      display: flex;
+      justify-content: space-between; }
+  .App .loader {
+    position: absolute;
+    top: 50vh;
+    left: 50vw; }
+    .App .loader .spinner-border {
+      font-size: 1em;
+      color: black; }
+  .App .Logo {
+    font-family: "Lobster Two", cursive;
+    font-size: 1.8em;
+    color: black;
+    text-decoration: none; }
+  .App .homepage, .App .Category {
+    min-height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row; }
+  .App .addRecipe {
+    min-height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-bottom: 50px; }
+    .App .addRecipe .center_container {
+      flex-grow: 1; }
+    .App .addRecipe .bottom_container i {
+      font-size: 1.5em; }
+    .App .addRecipe .footer {
+      height: 50px;
+      width: 100%;
+      position: fixed;
+      background: white;
+      bottom: 0px;
+      left: 0px;
+      padding: 10px;
+      box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; }
+    .App .addRecipe .IngredientsInfo {
+      padding-bottom: 50px !important; }
+      .App .addRecipe .IngredientsInfo .ingredients_list {
+        list-style: none;
+        line-height: 2em; }
+  .App .recipe {
+    min-height: 100%;
+    width: 100vw;
+    min-height: 100vh; }
+    .App .recipe .recipe_image {
+      width: 100%;
+      margin-top: 10px; }
+
+/*# sourceMappingURL=Main.css.map */
