@@ -6,6 +6,9 @@ import AddRecipe from './AddRecipe'
 import AddCategory from './AddCategory'
 import Recipe from './Recipe'
 import '../css/Main.scss'
+import Navbar from './Navbar'
+import Login from './Login'
+import Register from './Register'
 
 class App extends Component {
 
@@ -17,12 +20,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+          <Navbar/>
           <Switch>
             <Route exact path='/' component={() => <Home />}/>
             <Route path='/recipe/add' component={() => <AddRecipe />}/>
             <Route path='/category/add' component={() => <AddCategory />}/>
             <Route path='/category/:id' render={(props) => <Category {...props} />}/>
             <Route path='/recipe/:id' render={(props) => <Recipe {...props} />}/>
+            <Route path='/login' render={(props) => <Login />}/>
+            <Route path='/register' render={(props) => <Register />}/>
           </Switch>
       </div>
     )

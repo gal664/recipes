@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Loader from './Loader'
-import Navbar from './Navbar'
 
 class Category extends Component {
 
@@ -38,7 +37,6 @@ class Category extends Component {
     if (this.state.isLoading) return <Loader/>
     return (
       <div className="Category">
-        <Navbar title={this.state.category.title}/>
         {this.renderRecipes()}
       </div> )
   }

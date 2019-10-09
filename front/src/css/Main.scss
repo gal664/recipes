@@ -152,9 +152,11 @@
         @include setPageContainer(true, row, wrap, space-evenly);
     }
 
-    .addRecipe {
+    .inputForm {
         @include setPageContainer(true, column, nowrap, flex-start);
-
+        
+        padding: 10px;
+        
         .center_container {
             flex-grow: 1;
         }
@@ -170,11 +172,13 @@
             background: white;
             bottom: 0px;
             left: 0px;
-            padding-left: 10px;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
             align-items: center;
+
+            & > *{
+                margin-left: 10px;
+            }
         }
 
         .IngredientsInfo {

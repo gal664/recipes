@@ -22,6 +22,7 @@ class Navbar extends Component {
           <a className="menuItem" href="/">Home</a>
           <a className="menuItem" href="/recipe/add">Add recipe</a>
           <a className="menuItem" href="/category/add">Add category</a>
+          <a className="menuItem" href="/login">Login</a>
         </div>
       )
     }
@@ -29,7 +30,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar">
-        <span className="title">{this.props.title}</span>
+        <span className="title">Recipes</span>
         {this.renderMenu()}
       </div>
     )

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Ingredient from './Ingredient'
 import MethodStep from './MethodStep'
 import Loader from './Loader'
-import Navbar from './Navbar'
 
 class Recipe extends Component {
 
@@ -123,7 +122,6 @@ class Recipe extends Component {
     if (this.state.isLoading) return <Loader/>
     return (
       <div className="recipe">
-        <Navbar title={this.state.title}/>        
         <div className="metadata">
           <span role="img" aria-label="author">👩‍🍳</span> {this.state.author}<br/>
           <span role="img" aria-label="source">⚓</span> <a href={this.state.sourceUrl} target="_blank" rel="noopener noreferrer" >{this.state.sourceName}</a><br/>

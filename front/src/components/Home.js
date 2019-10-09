@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Loader from './Loader'
-import Navbar from './Navbar'
 
 class Home extends Component {
 
@@ -34,7 +33,6 @@ class Home extends Component {
     if (this.state.isLoading) return <Loader/>
     return (
       <div className="homepage">
-        <Navbar title="Categories"/>
         {this.renderCategories()}
       </div>
     )

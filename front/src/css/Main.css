@@ -100,32 +100,33 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     flex-direction: row; }
-  .App .addRecipe {
+  .App .inputForm {
     min-height: 100%;
     width: 100vw;
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    flex-direction: column; }
-    .App .addRecipe .center_container {
+    flex-direction: column;
+    padding: 10px; }
+    .App .inputForm .center_container {
       flex-grow: 1; }
-    .App .addRecipe .bottom_container i {
+    .App .inputForm .bottom_container i {
       font-size: 1.5em; }
-    .App .addRecipe .footer {
+    .App .inputForm .footer {
       height: 50px;
       width: 100%;
       position: fixed;
       background: white;
       bottom: 0px;
       left: 0px;
-      padding-left: 10px;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
       align-items: center; }
-    .App .addRecipe .IngredientsInfo {
+      .App .inputForm .footer > * {
+        margin-left: 10px; }
+    .App .inputForm .IngredientsInfo {
       padding-bottom: 50px !important; }
-      .App .addRecipe .IngredientsInfo .ingredients_list {
+      .App .inputForm .IngredientsInfo .ingredients_list {
         list-style: none;
         line-height: 2em; }
   .App .recipe {
