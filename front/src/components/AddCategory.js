@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router'
+import Navbar from './Navbar'
 
 class AddCategory extends Component {
 
@@ -97,7 +98,7 @@ class AddCategory extends Component {
     return (
       <div className="addRecipe">
         <div className="top_container">
-          <h1 className="title main_title mb-2">Add Category</h1>
+          <Navbar title="Add Category"/>
         </div>
         <div className="center_container">
           <input type="text" value={this.state.categoryName} autoFocus className="form-control mb-2" onChange={(value) => this.onInputChange(value)} id="categoryName" name="categoryName" placeholder="Enter Category Name" />

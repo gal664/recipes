@@ -14,11 +14,11 @@ class Navbar extends Component {
 
   renderMenu(){
     if(!this.state.isMenuOpen){
-      return (<i className="fas fa-bars" onClick={this.handleMenuClick}></i>)
+      return (<i className="menuBtn fas fa-bars" onClick={this.handleMenuClick}></i>)
     } else if(this.state.isMenuOpen){
       return (
         <div className="menu">
-          <i className="fas fa-bars" onClick={this.handleMenuClick}></i>
+          <i className="menuBtn fas fa-bars" onClick={this.handleMenuClick}></i>
           <a className="menuItem" href="/">Home</a>
           <a className="menuItem" href="/recipe/add">Add recipe</a>
           <a className="menuItem" href="/category/add">Add category</a>
@@ -29,7 +29,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar">
-        <span>{this.props.title}</span>
+        <span className="title">{this.props.title}</span>
         {this.renderMenu()}
       </div>
     )

@@ -129,17 +129,20 @@ class Recipe extends Component {
           <span role="img" aria-label="source">⚓</span> <a href={this.state.sourceUrl} target="_blank" rel="noopener noreferrer" >{this.state.sourceName}</a><br/>
           <span role="img" aria-label="duration">⏲️</span> {this.renderRecipeDuration()}
         </div>
-        <img className="recipe_image" src={this.state.image.urls.small} alt={this.state.title}/>
-        <span role="img" aria-label="camera">📷</span> <a href={this.state.image.user.links.html} target="_blank" rel="noopener noreferrer" >{this.state.image.user.name}</a><br/>
+          <div className="recipe_image" style={{background: `url(${this.state.image.urls.small}) center/cover`}}>
+            <a className="image_author" target="_blank" style={{color: this.state.image.color}} rel="noopener noreferrer" href={this.state.image.user.links.html + "utm_source=Recipes&utm_medium=referral"}>
+              <span role="img" aria-label="camera">📷</span> {this.state.image.user.name}
+            </a>
+          </div>
         <div className="main_container">
           <div className="ingredients_container">
-            <h2 className="title sub_title">Ingredients</h2>
+            <span className="title">Ingredients</span>
             <ul className="ingredients_list">
               {this.renderIngredients()}
             </ul>
           </div>
           <div className="method_container">
-            <h2 className="title sub_title">Method</h2>
+            <span className="title">Method</span>
             <ol className="method_list">
               {this.renderMethod_steps()}
             </ol>

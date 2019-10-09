@@ -2,6 +2,9 @@
 .App {
   min-height: 100vh;
   width: 100vw; }
+  .App .title {
+    font-family: "Lobster Two", cursive;
+    font-size: 1.5em; }
   .App .thumbnail {
     width: calc(100vw - 20px);
     height: 20vw;
@@ -19,9 +22,6 @@
         font-weight: bold;
         color: rgba(0, 0, 0, 0.5); }
     .App .thumbnail .thumbnail_title, .App .thumbnail .thumbnail_author {
-      background: rgba(0, 0, 0, 0.2);
-      border-top-left-radius: 8px;
-      border-bottom-right-radius: 8px;
       padding: 0px 10px 0px 10px;
       font-size: 1.2em;
       font-family: "Lobster Two", cursive; }
@@ -29,10 +29,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    font-size: 1.5em; }
-    .App .navbar span {
-      font-family: "Lobster Two", cursive; }
+    width: 100%; }
+    .App .navbar .menuBtn {
+      font-size: 1.5em; }
     .App .navbar .menu {
       height: 100vh;
       position: absolute;
@@ -41,24 +40,17 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      padding-right: 15px;
       padding-top: 13px;
       background: rgba(0, 0, 0, 0.5);
-      border-left: 3px white solid;
-      color: white; }
+      border-left: 3px rgba(255, 255, 255, 0.5) solid;
+      color: white;
+      padding-right: 15px;
+      z-index: 10; }
       .App .navbar .menu .menuItem {
-        padding-bottom: 10px;
-        padding-left: 10px;
+        padding: 5px;
         width: 100%;
-        font-size: 0.75em; }
-  .App .title {
-    font-family: "Lobster Two", cursive; }
-    .App .title.main_title {
-      margin: 0;
-      padding: 0; }
-    .App .title.sub_title {
-      padding-top: 10px;
-      padding-bottom: 20px; }
+        font-size: 0.75em;
+        border-bottom: solid rgba(255, 255, 255, 0.5) 1px; }
   .App a {
     color: inherit; }
     .App a:hover {
@@ -87,7 +79,7 @@
   .App ol.method_list li.step {
     background: #07b4e4;
     border-radius: 8px;
-    margin: 10px;
+    margin: 5px;
     padding: 5px; }
     .App ol.method_list li.step .step_duration {
       font-weight: 600; }
@@ -101,11 +93,6 @@
     .App .loader .spinner-border {
       font-size: 1em;
       color: black; }
-  .App .Logo {
-    font-family: "Lobster Two", cursive;
-    font-size: 1.8em;
-    color: black;
-    text-decoration: none; }
   .App .homepage, .App .Category {
     min-height: 100%;
     width: 100vw;
@@ -119,8 +106,7 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    flex-direction: column;
-    margin-bottom: 50px; }
+    flex-direction: column; }
     .App .addRecipe .center_container {
       flex-grow: 1; }
     .App .addRecipe .bottom_container i {
@@ -132,8 +118,7 @@
       background: white;
       bottom: 0px;
       left: 0px;
-      padding: 10px;
-      box-shadow: 0px 7px 30px 2px rgba(0, 0, 0, 0.75);
+      padding-left: 10px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -149,6 +134,12 @@
     min-height: 100vh; }
     .App .recipe .recipe_image {
       width: 100%;
-      margin-top: 10px; }
+      height: 100vw;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column-reverse; }
+      .App .recipe .recipe_image .image_author {
+        font-size: 1.2em;
+        font-family: "Lobster Two", cursive; }
 
 /*# sourceMappingURL=Main.css.map */
